@@ -1,0 +1,17 @@
+{
+    "name": "pub_javascript",
+    "version": "1.0.0",
+    "description": "An implementation of the pub(lic) profile transaction family using the sawtooth JS sdk",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "author": "",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "cbor": "^3.0.0",
+        "json-stable-stringify": "^1.0.1",
+        "sawtooth-sdk": "file:./../../javascript"
+    }
+}
