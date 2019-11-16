@@ -1,18 +1,18 @@
 <template>
   <div>
-    <Form/>
+    <FormData/>
     <LineChart />
   </div>
 </template>
 
 <script>
 import LineChart from '@/components/LineChart';
-import Form from '@/components/Form';
+import FormData from '@/components/FormData';
 export default {
   name: 'home',
   components: {
     LineChart,
-    Form
+    FormData
   }
 }
 </script>

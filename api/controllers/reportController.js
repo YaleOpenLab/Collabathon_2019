@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 
 const getAllData = async (req, res) => {
     try {
-        const contry = await Report.find();
-        res.status(200).json({ success: true, contry: contry });
+        const country = await Report.find();
+        res.status(200).json({ success: true, country: country });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error })
@@ -55,6 +55,17 @@ const getDataWithGas = async (req, res) => {
     }
 }
 
+const getDataWithCountry = async (req, res) => {
+    try {
+        const { country } = req.body;
+        const data = await Report.find({ country: country });
+        res.status(200).json({ sucess: true, data: data });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: error });
+    }
+}
+
 const getDataWithSector = async (req, res) => {
     try {
         const { sector } = req.body;
@@ -80,6 +91,7 @@ const getDataWithUnit = async (req, res) => {
 const getDataFilter = async (req, res) => {
     try {
         const { unit, sector, gas, year, country } = req.body;
+        console.log(sector, country, unit);
         let data;
         if (year && gas) {
             data = await Report.find({ unit: unit, gas: gas, sector: sector, country: country },{ emissions: { $elemMatch: { year: year } } })
@@ -110,5 +122,6 @@ export default {
     getDataWithSector,
     getDataWithUnit,
     getDataFilter,
-    getPrevision
+    getPrevision,
+    getDataWithCountry
 }
