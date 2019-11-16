@@ -1,56 +1,37 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
+    <v-app-bar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <router-link to="/">
+          <v-img src="@/assets/logo.png" width="60" height="60"></v-img>
+        </router-link>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-toolbar-items>
+        <v-btn class="btnNav" text to="/">
+          <div class="btnText">Explore</div>
+        </v-btn>
+        <v-btn class="btnNav" text to="/go">
+          <div class="btnText">Trade</div>
+        </v-btn>
+        <v-btn class="btnNav" text to="/portfolio">
+          <div class="btnText">Account</div>
+        </v-btn>
+      </v-toolbar-items>
     </v-app-bar>
-
     <v-content>
-      <HelloWorld/>
+      <router-view />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    
   },
 
   data: () => ({
