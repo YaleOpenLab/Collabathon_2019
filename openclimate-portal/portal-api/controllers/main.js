@@ -22,7 +22,7 @@ const getEmissionsPledgesForCountry = (req, res, db) => {
            // console.log('Results: ' + JSON.stringify(theseitems));
                    // res.json({dataExists: 'false'});
 
-                    console.log('It had something: '+console.log({theseitems}));
+                    console.log('It had something: '+console.log(theseitems));
 
 
                    // getEmissionSumForCountry(req,res,db,theseitems[0].is_o3166_1__alpha_3);
