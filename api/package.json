@@ -20,7 +20,7 @@
     "fast-csv": "^3.4.0",
     "i": "^0.3.6",
     "mongoose": "^5.7.1",
-    "nodemon": "^1.19.2",
+    "nodemon": "^1.19.4",
     "npm": "^6.13.0",
     "path-to-regexp": "^3.1.0",
     "saslprep": "^1.0.3",
