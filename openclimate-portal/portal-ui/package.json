@@ -1,0 +1,32 @@
+{
+  "name": "cp1-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "classnames": "^2.2.6",
+    "mdbreact": "^4.22.1",
+    "react": "^16.11.0",
+    "react-csv": "^1.1.2",
+    "react-dom": "^16.11.0",
+    "react-scripts": "2.1.8",
+    "reactstrap": "^7.1.0",
+    "reactstrap-toast": "^1.0.6",
+    "semantic-ui-react": "^0.88.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
