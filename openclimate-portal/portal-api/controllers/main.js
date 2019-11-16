@@ -17,15 +17,14 @@ const getEmissionsPledgesForCountry = (req, res, db) => {
 
     db.select('*').from('country')
         .whereRaw('cld_rdisplayname = ?', [countryName])
-        .then(theseitems => {
+        .then(items => {
             console.log('Hi there wtf');
            // console.log('Results: ' + JSON.stringify(theseitems));
                    // res.json({dataExists: 'false'});
 
-                    console.log('It had something: '+console.log(theseitems));
+                    console.log('It had something: '+JSON.stringify(items[0]['is_o3166_1__alpha_3']));
 
-
-                   // getEmissionSumForCountry(req,res,db,theseitems[0].is_o3166_1__alpha_3);
+                    getEmissionSumForCountry(req,res,db,items[0]['is_o3166_1__alpha_3']);
 
 
         })
@@ -34,15 +33,10 @@ const getEmissionsPledgesForCountry = (req, res, db) => {
 
 const getEmissionSumForCountry = (req, res, db, country_code) => {
 
-    let countryCode = 'xxxx';
-
-    if (countryName == 'United States') {
-        countryCode = 'USA';
-    }
-
+    console.log('Do it: '+JSON.stringify(country_code));
     db.select(db.raw('SUM(latest_reported_value) AS total_emissions')).
     from('primap_hist_v2_0_11_dec_2018_csv')
-        .whereRaw('scenario=\'HISTCR\' AND entity=\'KYOTOGHGAR4\' AND (category = \'IPC1\' OR category = \'IPC2\' OR category = \'IPC4\' OR category = \'IPCC5\' OR category = \'IPCMAG\' OR category = \'IPC3A\' OR category = \'MAdGELV\') AND country = ?', [countryCode])
+        .whereRaw('scenario=\'HISTCR\' AND entity=\'KYOTOGHGAR4\' AND (category = \'IPC1\' OR category = \'IPC2\' OR category = \'IPC4\' OR category = \'IPCC5\' OR category = \'IPCMAG\' OR category = \'IPC3A\' OR category = \'MAdGELV\') AND country = ?', [country_code])
         .then(items => {
             console.log('items: '+JSON.stringify(items));
 
@@ -57,7 +51,7 @@ const getEmissionSumForCountry = (req, res, db, country_code) => {
 
                     queryResult.total_emissions = queryDivided;
                     if (queryDivided != 0) {
-                        finishEmissionsPledgesForCountry(req, res, db, countryCode, queryResult);
+                        finishEmissionsPledgesForCountry(req, res, db, country_code, queryResult);
                     } else {
                         res.json({dataExists: 'false'})
 
@@ -75,37 +69,30 @@ const getEmissionSumForCountry = (req, res, db, country_code) => {
 
 function numberWithCommas(nStr) {
 
-
         return nStr.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
 
 }
 
-function finishEmissionsPledgesForCountry  (req, res, db, countryName, passedResult)  {
+function finishEmissionsPledgesForCountry  (req, res, db, country_code, passedResult)  {
     let returnResult = []
 
     db.select('*').
     from('cw_ndc_quantification_csv')
-        .whereRaw('label != \'BAU\' AND iso = ?', [countryName])
+        .whereRaw('label != \'BAU\' AND iso = ?', [country_code])
         .then(items => {
             console.log('Items: '+JSON.stringify(items));
-            if(items.length > 0){
-                console.log('Items length: '+items.length);
                 //res.json(items[0])
-                this.returnResult = items;
-                console.log('Result so far: '+JSON.stringify(this.returnResult));
+                //this.returnResult = items;
+                //console.log('Result so far: '+JSON.stringify(this.returnResult));
 
-                let combined = [{}];
-                combined[0].total_emissions = passedResult.total_emissions;
-                combined[0].total_pledges = this.returnResult;
+               let combined = [{}];
+              combined[0].total_emissions = passedResult.total_emissions;
+              combined[0].total_pledges = items;
 
-                console.log('Combined here: '+JSON.stringify(combined));
+               console.log('Combined here: '+JSON.stringify(combined));
                 res.json(combined);
 
 
-            } else {
-               // res.json({dataExists: 'false'})
-            }
         })
         .catch(err => console.log('Error finishing: '+JSON.stringify(err)))
 
