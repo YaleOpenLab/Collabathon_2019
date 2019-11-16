@@ -1,6 +1,16 @@
-import fs from 'fs';
-import csv from 'fast-csv'
+import axios from 'axios'
+import { Report } from '../models/reportModel'
+import { connectDb } from '../config/database'
 
-fs.createReadStream('ghg-emissions.csv').pipe(
-  csv.parse({ headers: true }
-)).on('data', row => console.log(row))
+const serialize = async () => {
+  try {
+    const res = await axios.get(`https://www.climatewatchdata.org/api/v1/data/historical_emissions`);
+    await Report.collection.insertMany(res.data.data);
+    console.log(`Successfully add ${res.data.data.length} elements`);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+connectDb();
+serialize();
