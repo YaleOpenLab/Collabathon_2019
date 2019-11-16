@@ -16,8 +16,11 @@
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "fast-csv": "^3.4.0",
+    "i": "^0.3.6",
     "mongoose": "^5.7.1",
     "nodemon": "^1.19.2",
+    "npm": "^6.13.0",
     "path-to-regexp": "^3.1.0",
     "saslprep": "^1.0.3",
     "uuidv1": "^1.6.14"
