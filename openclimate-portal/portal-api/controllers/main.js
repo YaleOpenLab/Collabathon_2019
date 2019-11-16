@@ -18,17 +18,18 @@ const getEmissionsPledgesForCountry = (req, res, db) => {
     db.select('*').from('country')
         .whereRaw('cld_rdisplayname = ?', [countryName])
         .then(theseitems => {
+            console.log('Hi there wtf');
            // console.log('Results: ' + JSON.stringify(theseitems));
                    // res.json({dataExists: 'false'});
 
-                    console.log('It had something: '+console.log(theseitems));
+                    console.log('It had something: '+console.log({theseitems}));
 
 
-                    //getEmissionSumForCountry(req,res,db,'asdf');
+                   // getEmissionSumForCountry(req,res,db,theseitems[0].is_o3166_1__alpha_3);
 
 
         })
-        .catch(err => console.log(JSON.stringify(err)));
+        .catch(err => console.log('Error'));
 }
 
 const getEmissionSumForCountry = (req, res, db, country_code) => {
