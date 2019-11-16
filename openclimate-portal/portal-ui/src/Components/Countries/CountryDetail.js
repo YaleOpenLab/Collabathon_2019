@@ -4,8 +4,6 @@ import CountryContext, {selectedCountry} from "../../Contexts/CountryContext";
 
 import {Jumbotron, Card, CardTitle, CardText} from 'reactstrap';
 
-import { Button, Navbar, Nav, Row, Col, NavLink, Collapse, Dropdown, UncontrolledDropdown, DropdownMenu, DropdownItem, DropdownToggle, NavbarToggler, NavItem, NavDropdown, Form, NavbarBrand} from 'reactstrap';
-
 
 
 class CountryDetail extends Component {
@@ -26,10 +24,6 @@ class CountryDetail extends Component {
 
 
     getEmissionsPledgesForCountry(selected_country) {
-        if (selected_country == 'United States') {
-            console.log('change: '+selected_country);
-            //selected_country='USA';
-        }
         console.log('Selected: '+selected_country);
         if (selected_country) {
             fetch('http://localhost:3000/getEmissionsPledgesForCountry?countryName=' + selected_country)
@@ -81,6 +75,8 @@ class CountryDetail extends Component {
                                         <img id="company_detail_background" src="../../../../country_detail_background.png"/>
 
                                         <div id="latest_reported_amount"></div>
+
+                                        <div id="latest_reported_pledges"></div>
 
 
                                     </Card>

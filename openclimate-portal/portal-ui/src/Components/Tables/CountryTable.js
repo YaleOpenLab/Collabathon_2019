@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import { Container, Header, List } from "semantic-ui-react";
 
 import { Dropdown } from 'semantic-ui-react'
-import CountryDetail from "../Countries/CountryDetail";
-import {Col} from "reactstrap";
-import CountryContext from "../../Contexts/CountryContext";
 
 
 class CountryTable extends Component {
@@ -57,8 +54,6 @@ class CountryTable extends Component {
         })
 
         let countries = newCountryOptions;
-
-        //console.log('set countries to this!!; '+JSON.stringify(countries));
 
         this.setState({countries});
 
