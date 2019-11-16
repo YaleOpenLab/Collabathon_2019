@@ -3,11 +3,11 @@ import mongoose from 'mongoose';
 require('dotenv').config();
 export const connectDb = async () => {
   try {
-    color.colog('Starting server', 'green');
+    console.log('Starting server');
     mongoose.set('useFindAndModify', false);
-    await mongoose.connect(`mongodb://public:${process.env.DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, { useNewUrlParser: true, useUnifiedTopology: true });
-    color.colog('Connect to db', 'green')
+    await mongoose.connect(`mongodb://heroku_m24wl5c1:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`, { useNewUrlParser: true, useUnifiedTopology: true });
+    console.log('Connect to db');
   } catch (err) {
-    color.colog(`Failed to connect to MongoDB server: \n${err}`, 'red');
+    console.log(`Failed to connect to MongoDB server: \n${err}`);
   }
 }
