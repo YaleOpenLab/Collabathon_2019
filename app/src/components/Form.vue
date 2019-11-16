@@ -7,6 +7,7 @@
             <v-select
               v-model="selectCountry"
               :items="itemsCountry"
+              @change="getCountry"
               label="Item"
               class="ma-3"
               required
@@ -50,6 +51,6 @@ export default {
   async mounted() {
     console.log(process.env.VUE_APP_API_URL)
     this.data = axios.post(`${process.env.VUE_APP_API_URL}/`);
-  }
+  },
 };
 </script>
