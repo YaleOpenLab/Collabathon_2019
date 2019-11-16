@@ -14,6 +14,9 @@
         <v-btn class="btnNav" text to="/go">
           <div class="btnText">Trade</div>
         </v-btn>
+        <v-btn class="btnNav" text to="/simulator">
+          <div class="btnText">Simulator</div>
+        </v-btn>
         <v-btn class="btnNav" text to="/portfolio">
           <div class="btnText">Account</div>
         </v-btn>
@@ -26,16 +29,13 @@
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: "App",
 
-  components: {
-    
-  },
+  components: {},
 
   data: () => ({
     //
-  }),
+  })
 };
 </script>
