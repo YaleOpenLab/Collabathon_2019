@@ -12,9 +12,15 @@
                 label="Country"
                 class="ma-3"
               ></v-select>
-              <v-select v-model="selectSector" :items="itemsSector" label="Sector" class="ma-3"></v-select>
-              <v-select v-model="selectGas" :items="itemsGas" label="Gas" class="ma-3"></v-select>
-              <v-select v-model="selectUnit" :items="itemsUnit" label="Unit" class="ma-3"></v-select>
+              <v-select
+                v-model="selectSector"
+                @change="changeSector"
+                :items="itemsSector"
+                label="Sector"
+                class="ma-3"
+              ></v-select>
+              <v-select v-model="selectGas" @change="changeGas" :items="itemsGas" label="Gas" class="ma-3"></v-select>
+              <v-select v-model="selectUnit" @change="changeUnit" :items="itemsUnit" label="Unit" class="ma-3"></v-select>
             </v-row>
           </v-col>
           <!-- <v-range-slider v-model="selectYears"></v-range-slider> -->
@@ -38,7 +44,7 @@ export default {
       loading: true,
       dataChart: "",
       allData: "",
-      selectCountry: country[0],
+      selectCountry: "Afghanistan",
       selectSector: "",
       selectGas: "",
       selectUnit: "",
@@ -59,16 +65,46 @@ export default {
       );
       this.loading = false;
       this.dataChart = res.data.data;
+      this.$emit('updateData', this.dataChart);
     } catch (error) {
       console.error(error);
     }
   },
   methods: {
     async changeCountry() {
-      this.dataChart = this.dataChart.filter(
-        k => k.country == this.selectCountry
+      const data = { country: this.selectCountry };
+      this.dataChart = await axios.post(
+        `${process.env.VUE_APP_API_URL}/data/getDataWithCountry`,
+        data
       );
-      console.log(this.dataChart);
+    },
+    async changeSector() {
+      const data = { sector: this.selectSector };
+      let res = await axios.post(
+        `${process.env.VUE_APP_API_URL}/data/getDataWithSector`,
+        data
+      );
+      this.dataChart = res.data.data.filter(k => this.dataChart._id == k._id);
+      console.log(res);
+    },
+    async changeGas() {
+      const data = { sector: this.selectGas };
+      let res = await axios.post(
+        `${process.env.VUE_APP_API_URL}/data/getDataWithGas`,
+        data
+      );
+      this.dataChart = res.data.data.filter(k => this.dataChart._id == k._id);
+      console.log(res);
+    },
+    async changeUnit() {
+      const data = { unit: this.selectUnit };
+    //   console.log(this.selectUnit);
+      let res = await axios.post(
+        `${process.env.VUE_APP_API_URL}/data/getDataWithUnit`,
+        data
+      );
+      console.log(res.data);
+    //   res.data.data.filter(k => {console.log(k._id)});
     }
   }
 };

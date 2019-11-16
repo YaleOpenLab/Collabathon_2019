@@ -7,5 +7,17 @@
 <script>
 import Chart from "chart.js";
 
-export default {};
+export default {
+  props: {
+    dataChart: Array
+  },
+  watch: {
+    dataChart: async function(newVal, oldVal) {
+      this.$emit("update:dataChart", newVal);
+    }
+  },
+  created() {
+    console.log(this.dataChart)
+  },
+};
 </script>

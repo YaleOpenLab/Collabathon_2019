@@ -1,7 +1,7 @@
 <template>
   <div>
-    <FormData/>
-    <LineChart />
+    <FormData v-on:updateData="onChangeData"/>
+    <LineChart :dataChart="dataChart"/>
   </div>
 </template>
 
@@ -10,9 +10,19 @@ import LineChart from '@/components/LineChart';
 import FormData from '@/components/FormData';
 export default {
   name: 'home',
+  data() {
+    return {
+      dataChart: [],
+    }
+  },
   components: {
     LineChart,
     FormData
-  }
+  },
+  methods: {
+    onChangeData(val) {
+      this.dataChart = val;
+    }
+  },
 }
 </script>
