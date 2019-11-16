@@ -1,0 +1,490 @@
+﻿ISO,Country,Year,Value,Range,Label
+AFG,Afghanistan,2020,35.5,No,BAU
+AFG,Afghanistan,2025,40.3,No,Conditional
+AFG,Afghanistan,2025,41.7,No,BAU
+AFG,Afghanistan,2030,42.7,No,Conditional
+AFG,Afghanistan,2030,48.9,No,BAU
+ALB,Albania,2030,5.45,No,Unconditional 
+ALB,Albania,2030,6.16,No,BAU
+DZA,Algeria,2030,,No,BAU not available
+AND,Andorra,2030,0.3299,No,Unconditional 
+AND,Andorra,2030,0.5236,No,BAU
+AGO,Angola,2020,125.78,No,BAU
+AGO,Angola,2025,124.66,No,Unconditional 
+AGO,Angola,2025,113.75,No,Conditional
+AGO,Angola,2025,155.82,No,BAU
+AGO,Angola,2030,125.61,No,Unconditional 
+AGO,Angola,2030,96.63,No,Conditional
+AGO,Angola,2030,193.25,No,BAU
+ATG,Antigua and Barbuda,2020,0.291,No,Unconditional 
+ATG,Antigua and Barbuda,2030,,No,Sectoral goals
+ARG,Argentina,2030,483,No,Unconditional 
+ARG,Argentina,2030,369,No,Conditional
+ARM,Armenia,2050,6.93,No,Unconditional 
+AUS,Australia,2020,523.7,No,Unconditional 
+AUS,Australia,2020,468.6,No,Conditional
+AUS,Australia,2020,413.4,No,Conditional
+AUS,Australia,2030,442.1,Yes,Unconditional 
+AUS,Australia,2030,430.1,Yes,Unconditional 
+AUT,Austria,2020,63.04,No,Unconditional 
+AZE,Azerbaijan,2030,45.27,No,Unconditional 
+BHS,Bahamas,2030,,No,BAU not available
+BHR,Bahrain,2030,,No,No GHG target
+BGD,Bangladesh,2030,327.43,No,Unconditional excluding LUCF
+BGD,Bangladesh,2030,304.03,No,Conditional
+BGD,Bangladesh,2030,339.13,No,BAU
+BRB,Barbados,2025,1.44,No,Conditional
+BRB,Barbados,2030,1.4,No,Conditional
+BLR,Belarus,2020,132.19,Yes,Conditional
+BLR,Belarus,2020,125.24,Yes,Conditional
+BLR,Belarus,2030,100.19,No,Unconditional 
+BEL,Belgium,2020,117.04,No,Unconditional 
+BLZ,Belize,2030,,No,No GHG target
+BEN,Benin,2030,,No,No sufficient data for quantification
+BTN,Bhutan,2030,0,No,Conditional
+BOL,Bolivia,2030,,No,No GHG target
+BIH,Bosnia & Herzegovina,2030,31.41,No,Unconditional 
+BIH,Bosnia & Herzegovina,2030,25.82,No,Conditional
+BIH,Bosnia & Herzegovina,2030,32,No,BAU
+BWA,Botswana,2030,7.06,No,Conditional (partial)
+BRA,Brazil,2020,2068,Yes,Unconditional 
+BRA,Brazil,2020,1977,Yes,Unconditional 
+BRA,Brazil,2025,1323,No,Unconditional 
+BRA,Brazil,2030,1197,No,Unconditional 
+BRN,Brunei,2030,,No,No GHG target
+BGR,Bulgaria,2020,82.92,No,Unconditional 
+BFA,Burkina Faso,2020,86.93,No,Unconditional 
+BFA,Burkina Faso,2020,75.98,No,Conditional
+BFA,Burkina Faso,2020,92.06,No,BAU
+BFA,Burkina Faso,2025,98.71,No,Unconditional 
+BFA,Burkina Faso,2025,86.88,No,Conditional
+BFA,Burkina Faso,2025,105.32,No,BAU
+BFA,Burkina Faso,2030,110.52,No,Unconditional 
+BFA,Burkina Faso,2030,96.75,No,Conditional
+BFA,Burkina Faso,2030,74.62,No,Adaptation
+BFA,Burkina Faso,2030,118.32,No,BAU
+BDI,Burundi,2020,44.07,No,Unconditional 
+BDI,Burundi,2020,39.62,No,Conditional
+BDI,Burundi,2020,44.52,No,BAU
+BDI,Burundi,2025,57.05,No,Unconditional 
+BDI,Burundi,2025,48.32,No,Conditional
+BDI,Burundi,2025,58.22,No,BAU
+BDI,Burundi,2030,72.25,No,Unconditional 
+BDI,Burundi,2030,59.59,No,Conditional
+BDI,Burundi,2030,74.49,No,BAU
+KHM,Cambodia,2030,8.47,No,Conditional
+KHM,Cambodia,2030,11.6,No,BAU
+CMR,Cameroon,2035,70.72,No,Conditional
+CMR,Cameroon,2035,104,No,BAU
+CAN,Canada,2020,620,No,Unconditional 
+CAN,Canada,2030,523,No,Unconditional 
+CPV,CapeVerde,2030,,No,No GHG target
+CAF,Central African Republic,2030,105.9,No,Unconditional 
+CAF,Central African Republic,2030,104.47,No,Conditional
+CAF,Central African Republic,2030,109.97,No,BAU
+CAF,Central African Republic,2050,178.86,No,Unconditional 
+CAF,Central African Republic,2050,141.95,No,Conditional
+CAF,Central African Republic,2050,189.27,No,BAU
+TCD,Chad,2030,23.44,No,Unconditional 
+TCD,Chad,2030,8.31,No,Conditional
+TCD,Chad,2030,28.66,No,BAU
+CHL,Chile,2030,,No,No sufficient data for quantification
+CHN,China PR,2020,11371.75,Yes,Conditional
+CHN,China PR,2020,9541.31,Yes,Conditional
+CHN,China PR,2030,12959.54,Yes,Unconditional 
+CHN,China PR,2030,9275.96,Yes,Unconditional 
+COL,Colombia,2030,268,No,Unconditional 
+COL,Colombia,2030,234.5,No,Conditional
+COL,Colombia,2030,335,No,BAU
+COM,Comoros,2020,0.19,No,Conditional
+COM,Comoros,2020,0.36,No,BAU
+COM,Comoros,2025,0.13,No,Conditional
+COM,Comoros,2025,0.43,No,BAU
+COM,Comoros,2030,0.08,No,Conditional
+COM,Comoros,2030,0.52,No,BAU
+COG,Congo,2025,8.79,No,Conditional
+COG,Congo,2025,16.98,No,BAU
+COG,Congo,2035,15.86,No,Conditional
+COG,Congo,2035,35,No,BAU
+COD,CongoDR,2030,356.9,No,Conditional
+COD,CongoDR,2030,430,No,BAU
+COK,Cook Islands,2030,,No,No economy-wide GHG target
+CRI,Costa Rica,2030,9.37,No,Unconditional 
+CIV,Cote d'Ivoire,2030,24.58,No,Conditional
+CIV,Cote d'Ivoire,2030,34.25,No,BAU
+HRV,Croatia,2020,24.92,No,Unconditional 
+CUB,Cuba,2030,,No,No GHG target
+CYP,Cyprus,2020,4.5,No,Unconditional 
+CZE,Czech Republic,2020,156.66,No,Unconditional 
+DNK,Denmark,2020,56.39,No,Unconditional 
+DJI,Djibouti,2020,2.33,No,Unconditional 
+DJI,Djibouti,2020,1.88,No,Conditional
+DJI,Djibouti,2020,2.91,No,BAU
+DJI,Djibouti,2030,2.69,No,Unconditional 
+DJI,Djibouti,2030,1.79,No,Conditional
+DJI,Djibouti,2030,4.48,No,BAU
+DMA,Dominica,2020,0.14,No,Conditional 
+DMA,Dominica,2025,0.1,No,Conditional
+DMA,Dominica,2030,0.09,No,Conditional
+DOM,Dominican Republic,2030,16.59,No,Conditional
+ECU,Ecuador,2030,,No,No economy-wide GHG target; BAU not available for calculate.
+EGY,Egypt,2030,,No,No GHG target
+SLV,El Salvador,2025,,No,No GHG target
+GNQ,Equatorial Guinea,2030,3.76,No,Conditional
+GNQ,Equatorial Guinea,2050,2.35,No,Conditional
+ERI,Eritrea,2020,4.61,No,Unconditional 
+ERI,Eritrea,2020,4.38,No,Conditional
+ERI,Eritrea,2020,5,No,BAU
+ERI,Eritrea,2025,4.84,No,Unconditional 
+ERI,Eritrea,2025,4.16,No,Conditional
+ERI,Eritrea,2025,5.5,No,BAU
+ERI,Eritrea,2030,5.12,No,Unconditional 
+ERI,Eritrea,2030,3.88,No,Conditional
+ERI,Eritrea,2030,6,No,BAU
+EST,Estonia,2020,32.32,No,Unconditional 
+ETH,Ethiopia,2030,145,No,Conditional
+EU28,EU-28,2020,4514.2,Yes,Unconditional 
+EU28,EU-28,2020,3949.9,Yes,Conditional
+EU28,EU-28,2030,3246.6,No,Unconditional 
+EU28,EU-28,2050,1082.2,Yes,Unconditional 
+EU28,EU-28,2050,270.5,Yes,Unconditional 
+FJI,Fiji,2030,2.25,No,Unconditional (Energy CO2)
+FJI,Fiji,2030,1.75,No,Conditional (Energy CO2)
+FJI,Fiji,2030,2.5,No,BAU (Energy CO2)
+FIN,Finland,2020,56.9,No,Unconditional 
+FRA,France,2020,440.05,No,Unconditional 
+GAB,Gabon,2025,,No,No sufficient data for quantification
+GMB,Gambia,2025,1.81,No,Conditional
+GMB,Gambia,2025,3.25,No,BAU
+GMB,Gambia,2030,2.18,No,Conditional 
+GMB,Gambia,2030,4,No,BAU
+GEO,Georgia,2030,32.66,No,Unconditional 
+GEO,Georgia,2030,28.82,No,Conditional
+GEO,Georgia,2030,38.42,No,BAU
+DEU,Germany,2020,1000.73,No,Unconditional 
+GHA,Ghana,2020,37.81,No,BAU
+GHA,Ghana,2025,47.08,No,Unconditional 
+GHA,Ghana,2025,39.06,No,Conditional
+GHA,Ghana,2025,53.5,No,BAU
+GHA,Ghana,2030,62.9,No,Unconditional 
+GHA,Ghana,2030,40.7,No,Conditional
+GHA,Ghana,2030,73.95,No,BAU
+GRC,Greece,2020,82.46,No,Unconditional 
+GRD,Grenada,2025,0.179,No,Conditional
+GRD,Grenada,2030,0.154,No,Conditional
+GTM,Guatemala,2030,47.82,No,Unconditional 
+GTM,Guatemala,2030,41.68,No,Conditional
+GTM,Guatemala,2030,53.85,No,BAU
+GIN,Guinea,2030,13.15,No,Conditional (excluding LUCF)
+GNB,Guinea-Bissau,2030,,No,Target not quantifiable
+GUY,Guyana,2025,,No,No GHG target
+HTI,Haiti,2025,19.76,No,Unconditional 
+HTI,Haiti,2025,14.35,No,Conditional
+HTI,Haiti,2025,20.8,No,BAU
+HND,Honduras,2030,24.58,No,Conditional
+HND,Honduras,2030,28.92,No,BAU
+HUN,Hungary,2020,75.12,No,Unconditional 
+ISL,Iceland,2020,3.02,No,Unconditional 
+ISL,Iceland,2030,8.22,No,Unconditional 
+IND,India,2020,4742.8,Yes,Conditional
+IND,India,2020,3853.82,Yes,Conditional
+IND,India,2030,9138.86,Yes,Conditional
+IND,India,2030,5882.1,Yes,Conditional
+IDN,Indonesia,2020,2183,No,Unconditional 
+IDN,Indonesia,2020,1740.5,No,Conditional
+IDN,Indonesia,2020,2950,No,BAU
+IDN,Indonesia,2030,2034,No,Unconditional (CM1)
+IDN,Indonesia,2030,1787,No,Conditional (CM2)
+IDN,Indonesia,2030,2869,No,BAU
+IRN,Iran,2030,,No,BAU not available
+IRQ,Iraq,2035,,No,BAU not available
+IRL,Ireland,2020,44.88,No,Unconditional 
+ISR,Israel,2020,87.2,No,Unconditional 
+ISR,Israel,2020,109,No,BAU
+ISR,Israel,2030,81.65,No,Unconditional 
+ISR,Israel,2030,105.5,No,BAU
+ITA,Italy,2020,415.93,No,Unconditional 
+JAM,Jamaica,2025,12.37,No,Unconditional 
+JAM,Jamaica,2025,12.1,No,Conditional
+JAM,Jamaica,2025,13.443,No,BAU
+JAM,Jamaica,2030,13.368,No,Unconditional 
+JAM,Jamaica,2030,13.043,No,Conditional
+JAM,Jamaica,2030,14.492,No,BAU
+JPN,Japan,2020,1254.6,No,Unconditional 
+JPN,Japan,2030,1042,No,Unconditional 
+JOR,Jordan,2020,38.15,No,BAU
+JOR,Jordan,2030,50.26,No,Unconditional 
+JOR,Jordan,2030,43.88,No,Conditional
+JOR,Jordan,2030,51.03,No,BAU
+KAZ,Kazakhstan,2020,304.5,No,Unconditional 
+KAZ,Kazakhstan,2030,304.5,No,Unconditional 
+KAZ,Kazakhstan,2030,268.7,No,Conditional
+KEN,Kenya,2030,100.1,No,Conditional
+KEN,Kenya,2030,143,No,BAU
+KIR,Kiribati,2025,0.06356,No,Unconditional 
+KIR,Kiribati,2025,0.02762,No,Conditional
+KIR,Kiribati,2025,0.07365,No,BAU
+KIR,Kiribati,2030,0.06874,No,Unconditional 
+KIR,Kiribati,2030,0.03011,No,Conditional
+KIR,Kiribati,2030,0.07883,No,BAU
+KWT,Kuwait,2030,,No,No GHG target
+KGZ,Kyrgyzstan,2030,13,No,Unconditional 
+KGZ,Kyrgyzstan,2030,11,No,Conditional
+KGZ,Kyrgyzstan,2030,15,No,BAU
+LAO,Lao PDR,2030,,No,No GHG target
+LVA,Latvia,2020,20.91,No,Unconditional 
+LBN,Lebanon,2030,36.81,No,Unconditional 
+LBN,Lebanon,2030,30.31,No,Conditional
+LBN,Lebanon,2030,43.3,No,BAU
+LSO,Lesotho,2030,,No,BAU not available
+LBR,Liberia,2030,4.505,No,Conditional
+LBR,Liberia,2030,5.302,No,BAU
+LIE,Liechtenstein,2020,0.0183,No,Unconditional 
+LIE,Liechtenstein,2020,0.01601,No,Conditional
+LIE,Liechtenstein,2030,0.01372,No,Unconditional 
+LTU,Lithuania,2020,38.43,No,Unconditional 
+LUX,Luxemburg,2020,10.18,No,Unconditional 
+MKD,Macedonia,2030,12.435,Yes,WEM (CO2)
+MKD,Macedonia,2030,11.359,Yes,WAM (CO2)
+MKD,Macedonia,2030,17.663,No,BAU (CO2)
+MDG,Madagascar,2020,-23.61,No,BAU
+MDG,Madagascar,2030,-69.37,No,Conditional
+MDG,Madagascar,2030,22.1,No,BAU
+MWI,Malawi,2040,,No,No GHG target
+MYS,Malaysia,2030,966.4,No,Unconditional 
+MYS,Malaysia,2030,883.6,No,Conditional
+MDV,Maldives,2020,0,No,Unconditional 
+MDV,Maldives,2030,2.97,No,Unconditional 
+MDV,Maldives,2030,2.51,No,Conditional
+MDV,Maldives,2030,3.3,No,BAU
+MLI,Mali,2020,-109.789,No,BAU
+MLI,Mali,2025,-95.49,No,Conditional
+MLI,Mali,2025,-52.32,No,Unconditional 
+MLI,Mali,2025,-69.327,No,BAU
+MLI,Mali,2030,-12.74,No,Unconditional 
+MLI,Mali,2030,-84.937,No,Conditional
+MLI,Mali,2030,-29.242,No,BAU
+MLT,Malta,2020,1.91,No,Unconditional 
+MHL,Marshall Islands,2025,0.1258,No,Partially conditional
+MHL,Marshall Islands,2030,0.1018,No,Partially conditional
+MRT,Mauritania,2030,18.34,No,Unconditional 
+MRT,Mauritania,2030,14.64,No,Conditional
+MRT,Mauritania,2030,18.84,No,BAU
+MUS,Mauritius,2030,4.9,No,Conditional
+MUS,Mauritius,2030,7,No,BAU
+MEX,Mexico,2020,554.4,No,Conditional
+MEX,Mexico,2020,792,No,BAU
+MEX,Mexico,2025,888,No,BAU
+MEX,Mexico,2030,759,No,Unconditional 
+MEX,Mexico,2030,623,No,Conditional
+MEX,Mexico,2030,973,No,BAU
+MEX,Mexico,2050,297.93,No,Unconditional 
+FSM,Micronesia,2025,0.108,No,Unconditional 
+FSM,Micronesia,2025,0.0975,No,Conditional
+MDA,Moldova,2020,28.13,No,Unconditional 
+MDA,Moldova,2030,13.5,Yes,Unconditional 
+MDA,Moldova,2030,12.375,Yes,Unconditional 
+MDA,Moldova,2030,8.25,No,Conditional
+MCO,Monaco,2020,0.069517,No,Unconditional 
+MCO,Monaco,2025,0.059586,No,Unconditional 
+MCO,Monaco,2030,0.049655,No,Unconditional 
+MNG,Mongolia,2030,44.03,No,Conditional
+MNG,Mongolia,2030,51.2,No,BAU
+MNE,Montenegro,2030,3.667,No,Unconditional 
+MAR,Morocco,2020,107.1,No,Unconditional 
+MAR,Morocco,2020,97.2,No,Conditional
+MAR,Morocco,2020,121.6,No,BAU
+MAR,Morocco,2025,116.7,No,Unconditional 
+MAR,Morocco,2025,91.6,No,Conditional
+MAR,Morocco,2025,142.7,No,BAU
+MAR,Morocco,2030,141.4,No,Unconditional 
+MAR,Morocco,2030,98.9,No,Conditional
+MAR,Morocco,2030,170.8,No,BAU
+MOZ,Mozambique,2030,,No,No GHG target
+MMR,Myanmar,2030,,No,Sectoral goals
+NAM,Namibia,2030,2.6,No,Conditional
+NAM,Namibia,2030,22.65,No,BAU
+NRU,Nauru,2030,,No,No GHG target
+NRU,Nauru,2030,0.08,No,BAU (CO2)
+NPL,Nepal,2030,,No,No GHG target
+NLD,Netherlands,2020,176.6,No,Unconditional 
+NZL,New Zealand,2020,61.35,No,Unconditional (excluding LUCF)
+NZL,New Zealand,2020,58.12,Yes,Conditional (excluding LUCF)
+NZL,New Zealand,2020,51.66,Yes,Conditional (excluding LUCF)
+NZL,New Zealand,2030,37.57,No,Unconditional 
+NER,Niger,2020,65.15,No,Unconditional 
+NER,Niger,2020,50.12,No,Conditional
+NER,Niger,2020,66.82,No,BAU
+NER,Niger,2030,93.09,No,Unconditional 
+NER,Niger,2030,63.09,No,Conditional
+NER,Niger,2030,96.47,No,BAU
+NGA,Nigeria,2030,720,No,Unconditional 
+NGA,Nigeria,2030,495,No,Conditional
+NGA,Nigeria,2030,900,No,BAU
+NIU,Niue,2030,,No,No GHG target
+PRK,North Korea,2020,116.36,No,BAU
+PRK,North Korea,2030,172.73,No,Unconditional 
+PRK,North Korea,2030,112.18,No,Conditional
+PRK,North Korea,2030,187.73,No,BAU
+NOR,Norway,2020,29.26,No,Unconditional 
+NOR,Norway,2020,25.08,Yes,Unconditional 
+NOR,Norway,2030,25.08,No,Unconditional 
+OMN,Oman,2030,88.71,No,Conditional
+OMN,Oman,2030,90.52,No,BAU
+PAK,Pakistan,2030,1282.4,No,Conditional
+PAK,Pakistan,2030,1603,No,BAU
+PLW,Palau,2025,0.068,No,Conditional (Energy)
+PLW,Palau,2025,0.14,No,BAU (Energy)
+PAN,Panama,2030,,No,No GHG target
+PNG,Papua New Guinea,2030,,No,No GHG target
+PRY,Paraguay,2020,232,No,BAU
+PRY,Paraguay,2030,374.4,No,Unconditional 
+PRY,Paraguay,2030,332.8,No,Conditional
+PRY,Paraguay,2030,416,No,BAU
+PER,Peru,2030,238.64,No,Unconditional 
+PER,Peru,2030,208.81,No,Conditional
+PER,Peru,2030,298.3,No,BAU
+PHL,Philippines,2030,,No,BAU not available
+POL,Poland,2020,374.3,No,Unconditional 
+PRT,Portugal,2020,47.52,No,Unconditional 
+PSE,Palestine,2040,13.68,No,Conditional (independence scenario)
+PSE,Palestine,2040,18.1,No,BAU (independence scenario)
+PSE,Palestine,2040,7.94,No,Conditional (status quo scenario)
+PSE,Palestine,2040,9.1,No,BAU (status quo scenario)
+QAT,Qatar,2030,,No,No GHG target
+ROU,Romania,2020,197.02,No,Unconditional 
+RUS,Russian Federation,2020,3204.3,Yes,Conditional
+RUS,Russian Federation,2020,2827.3,Yes,Conditional
+RUS,Russian Federation,2030,2947.5,Yes,Unconditional 
+RUS,Russian Federation,2030,2751,Yes,Unconditional 
+RWA,Rwanda,2030,,No,Target not quantifiable
+KNA,Saint Kitts and Nevis,2020,0.545,No,BAU
+KNA,Saint Kitts and Nevis,2025,0.528,No,Conditional
+KNA,Saint Kitts and Nevis,2025,0.676,No,BAU
+KNA,Saint Kitts and Nevis,2030,0.54,No,Conditional
+KNA,Saint Kitts and Nevis,2030,0.836,No,BAU
+LCA,Saint Lucia,2025,0.637,No,Conditional
+LCA,Saint Lucia,2025,0.758,No,BAU
+LCA,Saint Lucia,2030,0.628,No,Conditional
+LCA,Saint Lucia,2030,0.816,No,BAU
+VCT,Saint Vincent and the Grenadines,2025,0.5255,No,Unconditional
+VCT,Saint Vincent and the Grenadines,2025,0.6737,No,BAU
+WSM,Samoa,2025,,No,No GHG target
+SMR,San Marino,2030,0.1704,No,Unconditional 
+STP,Sao Tome and Principe,2030,0.1824,No,Conditional (excluding LUCF)
+STP,Sao Tome and Principe,2030,0.24,No,BAU (excluding LUCF)
+SAU,Saudi Arabia,2030,,No,No GHG target
+SEN,Senegal,2020,21.7,No,Unconditional 
+SEN,Senegal,2020,20.8,No,Conditional
+SEN,Senegal,2020,22.4,No,BAU
+SEN,Senegal,2025,28.4,No,Unconditional 
+SEN,Senegal,2025,25.2,No,Conditional
+SEN,Senegal,2025,29.6,No,BAU
+SEN,Senegal,2030,35.7,No,Unconditional 
+SEN,Senegal,2030,29.7,No,Conditional
+SEN,Senegal,2030,37.6,No,BAU
+SRB,Serbia,2030,60.13,No,Unconditional 
+SYC,Seychelles,2025,0.4499,No,Conditional
+SYC,Seychelles,2025,0.5724,No,BAU
+SYC,Seychelles,2030,0.4603,No,Conditional
+SYC,Seychelles,2030,0.6483,No,BAU
+SLE,Sierra Leone,2030,,No,No quantifiable target
+SGP,Singapore,2020,64.85,No,Unconditional 
+SGP,Singapore,2030,47,No,Unconditional 
+SVK,Slovakia,2020,59.57,No,Unconditional 
+SVN,Slovenia,2020,14.88,No,Unconditional 
+SLB,Solomon Islands,2025,0.061,No,Unconditional 
+SLB,Solomon Islands,2025,0.05,No,Conditional
+SLB,Solomon Islands,2030,0.048,No,Unconditional 
+SLB,Solomon Islands,2030,0.038,No,Conditional
+SOM,Somalia,2030,,No,No quantifiable target
+ZAF,South Africa,2020,583,No,Conditional
+ZAF,South Africa,2025,614,Yes,Conditional
+ZAF,South Africa,2025,398,Yes,Conditional
+ZAF,South Africa,2030,614,Yes,Conditional
+ZAF,South Africa,2030,398,Yes,Conditional
+KOR,South Korea,2020,547.8,No,Unconditional 
+KOR,South Korea,2025,809.7,No,BAU
+KOR,South Korea,2030,535.9,No,Unconditional 
+KOR,South Korea,2030,850.6,No,BAU
+SSD,South Sudan,2030,,No,No GHG target
+ESP,Spain,2020,230.26,No,Unconditional 
+LKA,Sri Lanka,2030,,No,No sufficient data for quantification
+SDN,Sudan,2030,,No,No GHG target
+SUR,Suriname,2025,,No,No GHG target
+SWZ,Swaziland,2030,,No,Target not quantifiable
+SWE,Sweden,2020,57.31,No,Unconditional 
+CHE,Switzerland,2020,42.64,No,Unconditional
+CHE,Switzerland,2020,37.31,No,Conditional
+CHE,Switzerland,2025,34.65,No,Unconditional 
+CHE,Switzerland,2030,26.65,No,Unconditional 
+TJK,Tajikistan,2030,22.95,Yes,Unconditional 
+TJK,Tajikistan,2030,20.4,Yes,Unconditional 
+TJK,Tajikistan,2030,19.13,Yes,Conditional
+TJK,Tajikistan,2030,16.58,Yes,Conditional
+TZA,Tanzania,2030,153,Yes,Conditional
+TZA,Tanzania,2030,138,Yes,Conditional
+TZA,Tanzania,2030,170,No,BAU
+THA,Thailand,2030,444,No,Unconditional 
+THA,Thailand,2030,416.25,No,Conditional
+THA,Thailand,2030,555,No,BAU
+TLS,Timor-Leste,2030,,No,Target not quantifiable
+TGO,Togo,2030,34.53,No,Unconditional 
+TGO,Togo,2030,27.63,No,Conditional
+TGO,Togo,2030,38.86,No,BAU
+TON,Tonga,2030,,No,Target not quantifiable
+TTO,Trinidad and Tobago,2030,41.8,No,Unconditional 
+TTO,Trinidad and Tobago,2030,34.3,No,Conditional
+TTO,Trinidad and Tobago,2030,41.9,No,BAU
+TUN,Tunisia,2020,37.4,No,Unconditional 
+TUN,Tunisia,2020,31.1,No,Conditional
+TUN,Tunisia,2020,39.8,No,BAU
+TUN,Tunisia,2025,47.4,No,Unconditional 
+TUN,Tunisia,2025,35,No,Conditional
+TUN,Tunisia,2025,51.6,No,BAU
+TUN,Tunisia,2030,62.2,No,Unconditional 
+TUN,Tunisia,2030,42.4,No,Conditional
+TUN,Tunisia,2030,68,No,BAU
+TUR,Turkey,2020,599,No,Unconditional 
+TUR,Turkey,2020,673,No,BAU
+TUR,Turkey,2025,790,No,Unconditional 
+TUR,Turkey,2025,934,No,BAU
+TUR,Turkey,2030,929,No,Unconditional 
+TUR,Turkey,2030,1175,No,BAU
+TKM,Turkmenistan,2030,,No,No sufficient data for quantification
+TUV,Tuvalu,2025,0.008,No,Unconditional (Energy)
+UGA,Uganda,2030,60.29,No,Conditional
+UGA,Uganda,2030,77.3,No,BAU
+GBR,UK,2020,637.45,No,Unconditional 
+UKR,Ukraine,2020,699.7,No,Conditional
+UKR,Ukraine,2030,524.76,No,Unconditional 
+ARE,United Arab Emirates,2030,,No,Target not quantifiable
+USA,United States of America,2020,5463.3,No,Unconditional 
+USA,United States of America,2025,4870.9,Yes,Unconditional 
+USA,United States of America,2025,4739.3,Yes,Unconditional 
+URY,Uruguay,2025,35.8,No,Unconditional 
+URY,Uruguay,2025,33,No,Conditional
+URY,Uruguay,2025,81,No,BAU
+UZB,Uzbekistan,2030,,No,No sufficient data for quantification
+VUT,Vanuatu,2030,,No,Target not quantifiable
+VEN,Venezuela,2030,272,No,Conditional
+VEN,Venezuela,2030,340,No,BAU
+VNM,Vietnam,2020,474.1,No,BAU
+VNM,Vietnam,2030,724.41,No,Unconditional 
+VNM,Vietnam,2030,590.55,No,Conditional
+VNM,Vietnam,2030,787.4,No,BAU
+YEM,Yemen,2020,35.9,No,Unconditional 
+YEM,Yemen,2020,35.25,No,Conditional
+YEM,Yemen,2020,35.94,No,BAU
+YEM,Yemen,2025,39.5,No,Unconditional 
+YEM,Yemen,2025,36.74,No,Conditional
+YEM,Yemen,2025,39.68,No,BAU
+YEM,Yemen,2030,43.35,No,Unconditional 
+YEM,Yemen,2030,37.67,No,Conditional
+YEM,Yemen,2030,43.81,No,BAU
+ZMB,Zambia,2030,60,No,Unconditional 
+ZMB,Zambia,2030,42.4,No,Conditional
+ZWE,Zimbabwe,2025,26.85,No,Conditional
+ZWE,Zimbabwe,2025,38.23,No,BAU
+ZWE,Zimbabwe,2030,34.4,No,Conditional (Energy)
+ZWE,Zimbabwe,2030,51.68,No,BAU (Energy)
