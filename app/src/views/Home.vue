@@ -1,24 +1,18 @@
 <template>
-  <div>
-    <LineChart :dataChart="dataChart"/>
+  <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import LineChart from '@/components/LineChart';
+// @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue'
+
 export default {
   name: 'home',
-   props: {
-    dataChart: Array
-  },
-  watch: {
-    dataChart: async function(newVal, oldVal) {
-      this.$emit("update:dataChart", newVal);
-    }
-  },
   components: {
-    LineChart
-      },
-  
+    HelloWorld
+  }
 }
 </script>

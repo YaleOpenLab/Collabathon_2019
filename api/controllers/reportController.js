@@ -1,6 +1,35 @@
 import { Report } from '../models/reportModel';
 import mongoose from 'mongoose';
 
+const mostPollutingSector = async (req, res) => {
+    try {
+        const sectors = await Report.distinct("sector");
+        let result = [];
+        sectors.forEach(async sector => {
+            const country = await Report.find({sector: sector});
+            console.log(country);
+            let emissions = {};
+            country.forEach(report => {
+                report.emissions.map(v => {
+                    if (!emissions[v.year]) {
+                        emissions[v.year] = v.value ? v.value : 0;
+                    } else {
+                        emissions[v.year] += v.value ? v.value : 0;
+                    }
+                });
+            });
+            result.push({
+                emissions,
+                sector
+            })
+        });
+        res.status(200).json({ success: true, result });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: error })
+    }
+}
+
 const getAllData = async (req, res) => {
     try {
         const country = await Report.find();
@@ -94,7 +123,7 @@ const getDataFilter = async (req, res) => {
         console.log(sector, country, unit);
         let data;
         if (year && gas) {
-            data = await Report.find({ unit: unit, gas: gas, sector: sector, country: country },{ emissions: { $elemMatch: { year: year } } })
+            data = await Report.find({ unit: unit, gas: gas, sector: sector, country: country }, { emissions: { $elemMatch: { year: year } } })
         } else if (!year && gas) {
             data = await Report.find({ unit: unit, gas: gas, sector: sector, country: country })
         } else if (year && !gas) {
@@ -110,7 +139,7 @@ const getDataFilter = async (req, res) => {
 }
 
 const getPrevision = async (req, res) => {
-    
+
 }
 
 export default {
@@ -123,5 +152,6 @@ export default {
     getDataWithUnit,
     getDataFilter,
     getPrevision,
-    getDataWithCountry
+    getDataWithCountry,
+    mostPollutingSector
 }

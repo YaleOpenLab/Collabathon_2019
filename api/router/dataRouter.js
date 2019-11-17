@@ -32,3 +32,5 @@ dataRouter.post('/getDataWithCountry', async (req, res) => reportController.getD
 dataRouter.post('/getDataFilter', async (req, res) => reportController.getDataFilter(req, res));
 
 dataRouter.post('/getPrevision', async (req, res) => reportController.getPrevision(req, res));
+
+dataRouter.get('/mostPollutingSector', async (req, res) => reportController.mostPollutingSector(req, res));

@@ -1,52 +1,32 @@
 <template>
-  <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <router-link to="/">
-          <v-img src="@/assets/logo.png" width="60" height="60"></v-img>
-        </router-link>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items>
-        <v-btn class="btnNav" text to="/">
-          <div class="btnText">Explore</div>
-        </v-btn>
-        <v-btn class="btnNav" text to="/go">
-          <div class="btnText">Trade</div>
-        </v-btn>
-        <v-btn class="btnNav" text to="/simulator">
-          <div class="btnText">Simulator</div>
-        </v-btn>
-        <v-btn class="btnNav" text to="/portfolio">
-          <div class="btnText">Account</div>
-        </v-btn>
-      </v-toolbar-items>
-    </v-app-bar>
-    <v-content>
-      <FormData v-on:updateData="onChangeData" />
-      <router-view :dataChart="dataChart" />
-    </v-content>
-  </v-app>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
+  </div>
 </template>
 
-<script>
-import FormData from "@/components/FormData";
+<style lang="scss">
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-export default {
-  name: "App",
+#nav {
+  padding: 30px;
 
-  components: {
-    FormData
-  },
-  methods: {
-    onChangeData(val) {
-      this.dataChart = val;
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
     }
-  },
-  data() {
-    return {
-      dataChart: []
-    };
   }
-};
-</script>
+}
+</style>
