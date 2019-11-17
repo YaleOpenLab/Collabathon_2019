@@ -37,9 +37,10 @@ export default {
   components: {
     LineChart,
     Doughnut
-  }
+  },
 };
 </script>
+
 
 <style>
 .grr {

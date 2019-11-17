@@ -5,24 +5,25 @@ const mostPollutingSector = async (req, res) => {
     try {
         const sectors = await Report.distinct("sector");
         let result = [];
-        let emissions = {};
-        sectors.forEach(async sector => {
-            const country = await Report.find({sector: sector});
-            country.forEach(report => {
-                report.emissions.map(v => {
+        let emissions;
+        for (let i = 0; i < sectors.length; i++) {
+            const countries = await Report.find({sector: sectors[i]});
+            emissions = {};
+            for (let j = 0; j < countries.length; j++) {
+                countries[j].emissions.map(v => {
                     if (!emissions[v.year]) {
                         emissions[v.year] = v.value ? v.value : 0;
                     } else {
                         emissions[v.year] += v.value ? v.value : 0;
                     }
                 });
-            });
+            }
             result.push({
                 emissions,
-                sector
+                sector: sectors[i]
             })
-        });
-        res.status(200).json({ success: true, result });
+        }
+        res.status(200).json({ success: true, data: result });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error })
