@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-container fluid>
+      <h2 align="center" class="grr">CO2 COUNTRIES EMISSIONS</h2>
       <v-row align="center" justify="center">
         <v-col cols="2">
           <svg-map class="svg-map__location_verygood" :map="Australia" />
@@ -146,5 +147,13 @@ export default {
 .svg-map__location_verybad {
   fill: #0e130e;
   cursor: pointer;
+}
+.grr {
+  color: rgb(1, 115, 103);
+}
+canvas {
+  height: 110px;
+  position: relative;
+  width: 360px;
 }
 </style>

@@ -17,13 +17,13 @@
         <v-btn class="btnNav" text to="/maps">
           <div class="btnText">Map</div>
         </v-btn>
-        <v-btn class="btnNav" text to="/portfolio">
-          <div class="btnText">Account</div>
+        <v-btn class="btnNav" text to="/industries">
+          <div class="btnText">Industries</div>
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
     <v-content>
-      <div v-if="$store.state.whichForm !== 'maps'">
+      <div v-if="$store.state.whichForm !== 'maps' && $store.state.whichForm !== 'industries'">
         <div v-if="$store.state.whichForm !== 'future'">
           <FormData v-on:updateData="onChangeData" />
         </div>

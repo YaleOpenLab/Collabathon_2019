@@ -29,9 +29,9 @@ export default {
       this.years = [...Object.keys(emissions)];
       this.labels = [...Object.values(emissions)];
       let i = 0;
-      let colors = [`rgba(${i},73,93,.5)`];
+      let colors = [`rgb(1, ${i}, 103, 1)`];
       for (let i = 1; i < this.years.length; i++) {
-        colors.push(`rgba(${i},73,93,1)`);
+        colors.push(`rgba(1, ${i}, 93, 1)`);
       }
       this.datacollection = {
         labels: this.years,
