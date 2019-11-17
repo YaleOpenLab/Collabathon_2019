@@ -1,117 +1,55 @@
 <template>
   <div>
-    <canvas id="planet-chart"></canvas>
+    <div v-if="labels && years">
+      <v-container style="position: relative; height: 10vh">
+              <line-chart :chartData="datacollection"></line-chart>
+      </v-container>
+    </div>
   </div>
 </template>
 
 <script>
 import Chart from "chart.js";
-
-export const planetChartData = {
-  type: "line",
-  data: {
-    labels: [
-      "1990",
-      "1991",
-      "1992",
-      "1993",
-      "1994",
-      "1995",
-      "1996",
-      "1997",
-    ],
-    datasets: [
-      {
-        // one line graph
-        label: "Number of Moons",
-        data: [0, 0, 1, 2, 67, 62, 27, 14],
-        backgroundColor: [
-          "rgba(54,73,93,.5)", // Blue
-          "rgba(54,73,93,.5)",
-          "rgba(54,73,93,.5)",
-          "rgba(54,73,93,.5)",
-          "rgba(54,73,93,.5)",
-          "rgba(54,73,93,.5)",
-          "rgba(54,73,93,.5)",
-          "rgba(54,73,93,.5)"
-        ],
-        borderColor: [
-          "#36495d",
-          "#36495d",
-          "#36495d",
-          "#36495d",
-          "#36495d",
-          "#36495d",
-          "#36495d",
-          "#36495d"
-        ],
-        borderWidth: 3
-      },
-      {
-        // another line graph
-        label: "Planet Mass (x1,000 km)",
-        data: [4.8, 12.1, 12.7, 6.7, 139.8, 116.4, 50.7, 49.2],
-        backgroundColor: [
-          "rgba(71, 183,132,.5)" // Green
-        ],
-        borderColor: ["#47b784"],
-        borderWidth: 3
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    lineTension: 1,
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-            padding: 25
-          }
-        }
-      ]
-    }
-  }
-};
-
+import { Line } from "vue-chartjs";
 export default {
   props: {
-    dataChart: Array,
+    dataChart: Array
   },
   watch: {
     dataChart(val) {
       let emissions = {};
       val.forEach(report => {
+        this.country = report.country;
         report.emissions.map(v => {
-          if (!emissions[v.year] ) {
-            emissions[v.year] = (v.value) ? v.value : 0;
+          if (!emissions[v.year]) {
+            emissions[v.year] = v.value ? v.value : 0;
           } else {
-            emissions[v.year] += (v.value) ? v.value : 0;
+            emissions[v.year] += v.value ? v.value : 0;
           }
         });
       });
-      console.log(emissions);
-    },
-  },
-  methods: {
-    createChart(chartId, chartData) {
-      const ctx = document.getElementById(chartId);
-      const myChart = new Chart(ctx, {
-        type: chartData.type,
-        data: chartData.data,
-        options: chartData.options
-      });
+      this.years = [...Object.keys(emissions)];
+      this.labels = [...Object.values(emissions)];
+      this.datacollection = {
+        labels: this.years,
+        datasets: [
+          {
+            label: this.country,
+            backgroundColor: "rgba(54,73,93,.5)",
+            data: this.labels
+          }
+        ]
+      };
     }
   },
+  methods: {},
   data() {
     return {
-      planetChartData: planetChartData
+      years: [],
+      country: "",
+      labels: [],
+      datacollection: {}
     };
-  },
-
-  mounted() {
-    this.createChart("planet-chart", this.planetChartData);
-  },
+  }
 };
 </script>
