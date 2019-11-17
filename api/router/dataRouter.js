@@ -37,6 +37,8 @@ dataRouter.post('/getPrevision', async (req, res) => reportController.getPrevisi
 dataRouter.get('/mostPollutingSector', async (req, res) => reportController.mostPollutingSector(req, res));
 
 
+/*-----------------------------FUTURE-----------------------------*/
+
 dataRouter.post('/future', async (req, res) => await futureController.getAllDataFuture(req, res))
 
 //data: location

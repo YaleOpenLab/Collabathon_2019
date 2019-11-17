@@ -8,22 +8,22 @@
               <v-select
                 v-model="selectLocation"
                 :items="itemsLocation"
-                @change="changeCountry"
-                label="Country"
+                @change="changeLocation"
+                label="Location"
                 class="ma-3"
               ></v-select>
               <v-select
                 v-model="selectScenario"
-                @change="changeSector"
+                @change="changeSenario"
                 :items="itemsScenario"
-                label="Sector"
+                label="Scenario"
                 class="ma-3"
               ></v-select>
               <v-select
                 v-model="selectIndicator"
-                @change="changeGas"
+                @change="changeIndicator"
                 :items="itemsIndicator"
-                label="Gas"
+                label="Indicator"
                 class="ma-3"
               ></v-select>
               <v-select
@@ -53,11 +53,11 @@ export default {
     return {
       loading: true,
       dataChart: "",
-      countryFutureData: "",
+      locationFutureData: "",
       selectLocation: location[0],
       selectScenario: "",
       selectIndicator: "",
-      selectUnit: "",
+      selectUnit: unit[0],
       selectYears: "",
       itemsLocation: location,
       itemsScenario: scenario,
@@ -67,14 +67,14 @@ export default {
   },
   async created() {
     try {
-      const data = { location: this.selectCountry };
+      const data = { location: this.selectLocation };
       let res = await axios.post(
         `${process.env.VUE_APP_API_URL}/data/getFutureWithLocation`,
         data
       );
       this.loading = false;
       this.dataChart = res.data.data;
-      this.countryFutureData = res.data.data;
+      this.locationFutureData = res.data.data;
       this.$emit("updateData", this.dataChart);
     } catch (error) {
       console.error(error);
@@ -82,63 +82,63 @@ export default {
   },
   methods: {
     beforeChange(changeValue) {
-      let tmpArray = this.countryFutureData;
+      let tmpArray = this.locationFutureData;
       tmpArray = tmpArray.filter(k => {
-        if (changeValue === "Sector") {
+        if (changeValue === "Scenario") {
           return (
-            k.gas == (this.selectGas || k.gas) &&
+            k.indicator == (this.selectIndicator || k.indicator) &&
             k.unit == (this.selectUnit || k.unit)
+          );
+        } else if (changeValue === "Indicator") {
+          return (
+            k.unit == (this.selectUnit || k.unit) &&
+            k.scenario == (this.selectScenario || k.scenario)
           );
         } else if (changeValue === "Unit") {
           return (
-            k.gas == (this.selectGas || k.gas) &&
-            k.sector == (this.selectSector || k.sector)
+            k.scenario == (this.selectScenario || k.scenario) &&
+            k.indicator == (this.selectIndicator || k.indicator)
           );
-        } else if (changeValue === "Gas") {
+        } else if (changeValue === "Location") {
           return (
-            k.sector == (this.selectSector || k.sector) &&
-            k.unit == (this.selectUnit || k.unit)
-          );
-        } else if (changeValue === "Country") {
-          return (
-            k.sector == (this.selectSector || k.sector) &&
+            k.scenario == (this.selectScenario || k.scenario) &&
             k.unit == (this.selectUnit || k.unit) &&
-            k.gas == (this.selectGas || k.gas)
+            k.indicator == (this.selectIndicator || k.indicator)
           );
         }
       });
       return tmpArray;
     },
-    async changeCountry() {
-      const data = { country: this.selectCountry };
+    async changeLocation() {
+      const data = { location: this.selectLocation };
       let res = await axios.post(
-        `${process.env.VUE_APP_API_URL}/data/getDataWithCountry`,
+        `${process.env.VUE_APP_API_URL}/data/getFutureWithLocation`,
         data
       );
       this.dataChart = res.data.data;
-      this.countryFutureData = this.dataChart;
-      this.dataChart = this.beforeChange("Country");
+      this.locationFutureData = this.dataChart;
+      this.dataChart = this.beforeChange("Location");
       this.$emit("updateData", this.dataChart);
     },
-    async changeSector() {
-      const data = { sector: this.selectSector };
+    async changeSenario() {
+      const data = { scenario: this.selectScenario };
       let res = await axios.post(
-        `${process.env.VUE_APP_API_URL}/data/getDataWithSector`,
+        `${process.env.VUE_APP_API_URL}/data/getFutureWithScenario`,
         data
       );
-      const tmpData = this.beforeChange("Sector");
+      const tmpData = this.beforeChange("Senario");
       this.dataChart = res.data.data.filter(o =>
         tmpData.find(o2 => o._id === o2._id)
       );
       this.$emit("updateData", this.dataChart);
     },
-    async changeGas() {
-      const data = { gas: this.selectGas };
+    async changeIndicator() {
+      const data = { indicator: this.selectIndicator };
       let res = await axios.post(
-        `${process.env.VUE_APP_API_URL}/data/getDataWithGas`,
+        `${process.env.VUE_APP_API_URL}/data/getFutureWithIndicator`,
         data
       );
-      const tmpData = this.beforeChange("Gas");
+      const tmpData = this.beforeChange("Indicator");
       this.dataChart = res.data.data.filter(o =>
         tmpData.find(o2 => o._id === o2._id)
       );
@@ -147,7 +147,7 @@ export default {
     async changeUnit() {
       const data = { unit: this.selectUnit };
       let res = await axios.post(
-        `${process.env.VUE_APP_API_URL}/data/getDataWithUnit`,
+        `${process.env.VUE_APP_API_URL}/data/getFutureWithUnit`,
         data
       );
       const tmpData = this.beforeChange("Unit");

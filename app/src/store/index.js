@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
+
 
 Vue.use(Vuex)
 
@@ -9,11 +11,13 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_WICHFORM: (state, val) => {
-      state.wichForm = val
+      state.whichForm = val
     },
   },
   actions: {
   },
-  modules: {
-  }
+  getters: {
+    whichForm: state => state.whichForm,
+  },
+  plugins: [createPersistedState()]
 })

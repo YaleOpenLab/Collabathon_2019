@@ -14,8 +14,8 @@
         <v-btn class="btnNav" text to="/future">
           <div class="btnText">Future</div>
         </v-btn>
-        <v-btn class="btnNav" text to="/simulator">
-          <div class="btnText">Simulator</div>
+        <v-btn class="btnNav" text to="/maps">
+          <div class="btnText">Map</div>
         </v-btn>
         <v-btn class="btnNav" text to="/portfolio">
           <div class="btnText">Account</div>
@@ -23,11 +23,13 @@
       </v-toolbar-items>
     </v-app-bar>
     <v-content>
-      <div v-if="$store.state.whichForm !== 'future'">
-        <FormData v-on:updateData="onChangeData" />
-      </div>
-      <div v-else>
-        <FormFutureData v-on:updateData="onChangeData" />
+      <div v-if="$store.state.whichForm !== 'maps'">
+        <div v-if="$store.state.whichForm !== 'future'">
+          <FormData v-on:updateData="onChangeData" />
+        </div>
+        <div v-else>
+          <FormFutureData v-on:updateData="onChangeData" />
+        </div>
       </div>
       <router-view :dataChart="dataChart" />
     </v-content>
@@ -59,7 +61,9 @@ export default {
   },
   watch: {
     $route(to, from) {
-      this.$store.commit("SET_WICHFORM", router.resolve(to).route.name);
+      if (router.resolve(to).route.name) {
+        this.$store.commit("SET_WICHFORM", router.resolve(to).route.name);
+      }
     }
   }
 };
