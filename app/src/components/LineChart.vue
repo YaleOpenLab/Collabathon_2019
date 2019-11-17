@@ -1,7 +1,11 @@
 <template>
   <div>
     <div v-if="labels && years">
+<<<<<<< HEAD
       <v-container style="height: 10vh">
+=======
+      <v-container style="position: relative; height: 10vh">
+>>>>>>> chartwo
         <line-chart :chartData="datacollection"></line-chart>
       </v-container>
     </div>
@@ -33,7 +37,7 @@ export default {
         datasets: [
           {
             label: this.country,
-            backgroundColor: "rgba(54,73,93,.5)",
+            backgroundColor: "rgb(1, 115, 103)",
             data: this.labels
           }
         ]
