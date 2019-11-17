@@ -42,7 +42,6 @@
         <v-progress-circular indeterminate color="primary"></v-progress-circular>
       </div>
     </v-container>
-    {{dataChart}}
   </div>
 </template>
 

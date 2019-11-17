@@ -81,25 +81,13 @@ export default {
   },
   watch: {
     dataChart(val) {
-      // val.forEach(report => {
-      //   report.emissions.map(v => {
-      //     if (tabYears.indexOf(v.year) > -1) {
-      //       tabYears[tabYears.indexOf(v.year)].result += v.value;
-      //     }
-      //   });
-      // });
-
-      let emissions = [];
+      let emissions = {};
       val.forEach(report => {
         report.emissions.map(v => {
-          if (!emissions[v.year]) {
-            emissions.push({
-              year: v.year,
-              value: v.value
-            });
+          if (!emissions[v.year] ) {
+            emissions[v.year] = (v.value) ? v.value : 0;
           } else {
-            console.log('BITE');
-            emissions[v.year].value += v.value;
+            emissions[v.year] += (v.value) ? v.value : 0;
           }
         });
       });
