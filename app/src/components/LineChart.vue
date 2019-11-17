@@ -11,7 +11,8 @@
 <script>
 export default {
   props: {
-    dataChart: Array
+    dataChart: Array,
+    sectorChart: Array
   },
   watch: {
     dataChart(val) {
@@ -38,6 +39,32 @@ export default {
           }
         ]
       };
+    },
+    sectorChart(val) {
+      let grr = 100;
+      this.datacollection = {
+        labels: this.years,
+        datasets: []
+      };
+      let maxYear = 1000;
+      let minYear = 3000;
+      val.forEach(v => {
+        grr += 10;
+        this.datacollection.datasets.push({
+          backgroundColor: `rgb(1, ${grr}, 103)`,
+          label: v.sector,
+          data: Object.values(v.emissions)
+        });  
+        if (Object.keys(v.emissions)[0] < minYear) {
+          minYear = Object.keys(v.emissions)[0];
+        }
+        if (maxYear < Object.keys(v.emissions).pop()) {
+          maxYear = Object.keys(v.emissions).pop();
+        }
+      });
+      for (let i = minYear; i < maxYear; i++) {
+        this.years.push(+i);
+      }
     }
   },
   methods: {},

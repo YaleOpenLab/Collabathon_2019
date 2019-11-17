@@ -4,7 +4,7 @@
       <div v-if="!loading">
         <v-row>
           <v-col cols="12">
-            <v-row align="center" justify="center" class="ma-12">
+            <v-row align="center" justify="center" class="mr-12 ml-12">
               <v-select
                 v-model="selectCountry"
                 :items="itemsCountry"
