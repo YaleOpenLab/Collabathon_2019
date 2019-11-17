@@ -30,8 +30,8 @@
         <v-progress-circular indeterminate color="primary"></v-progress-circular>
       </div>
     </v-container>
-    {{dataChart}}
-    {{allData}}
+    <!-- {{dataChart}}
+    {{allData}} -->
   </div>
 </template>
 

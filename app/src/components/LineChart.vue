@@ -7,19 +7,18 @@
 <script>
 import Chart from "chart.js";
 
-<<<<<<< HEAD
 export const planetChartData = {
   type: "line",
   data: {
     labels: [
-      "Mercury",
-      "Venus",
-      "Earth",
-      "Mars",
-      "Jupiter",
-      "Saturn",
-      "Uranus",
-      "Neptune"
+      "1990",
+      "1991",
+      "1992",
+      "1993",
+      "1994",
+      "1995",
+      "1996",
+      "1997",
     ],
     datasets: [
       {
@@ -77,6 +76,36 @@ export const planetChartData = {
 };
 
 export default {
+  props: {
+    dataChart: Array,
+  },
+  watch: {
+    dataChart(val) {
+      // val.forEach(report => {
+      //   report.emissions.map(v => {
+      //     if (tabYears.indexOf(v.year) > -1) {
+      //       tabYears[tabYears.indexOf(v.year)].result += v.value;
+      //     }
+      //   });
+      // });
+
+      let emissions = [];
+      val.forEach(report => {
+        report.emissions.map(v => {
+          if (!emissions[v.year]) {
+            emissions.push({
+              year: v.year,
+              value: v.value
+            });
+          } else {
+            console.log('BITE');
+            emissions[v.year].value += v.value;
+          }
+        });
+      });
+      console.log(emissions);
+    },
+  },
   methods: {
     createChart(chartId, chartData) {
       const ctx = document.getElementById(chartId);
@@ -95,22 +124,6 @@ export default {
 
   mounted() {
     this.createChart("planet-chart", this.planetChartData);
-  }
-};
-</script>
-=======
-export default {
-  props: {
-    dataChart: Array
-  },
-  watch: {
-    dataChart: async function(newVal, oldVal) {
-      this.$emit("update:dataChart", newVal);
-    }
-  },
-  created() {
-    console.log(this.dataChart)
   },
 };
 </script>
->>>>>>> origin/front_oelayad
