@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <canvas id="planet-chart"></canvas>
   </div>
 </template>
@@ -7,17 +7,123 @@
 <script>
 import Chart from "chart.js";
 
+export const planetChartData = {
+  type: "line",
+  data: {
+    labels: [
+      "1990",
+      "1991",
+      "1992",
+      "1993",
+      "1994",
+      "1995",
+      "1996",
+      "1997",
+    ],
+    datasets: [
+      {
+        // one line graph
+        label: "Number of Moons",
+        data: [0, 0, 1, 2, 67, 62, 27, 14],
+        backgroundColor: [
+          "rgba(54,73,93,.5)", // Blue
+          "rgba(54,73,93,.5)",
+          "rgba(54,73,93,.5)",
+          "rgba(54,73,93,.5)",
+          "rgba(54,73,93,.5)",
+          "rgba(54,73,93,.5)",
+          "rgba(54,73,93,.5)",
+          "rgba(54,73,93,.5)"
+        ],
+        borderColor: [
+          "#36495d",
+          "#36495d",
+          "#36495d",
+          "#36495d",
+          "#36495d",
+          "#36495d",
+          "#36495d",
+          "#36495d"
+        ],
+        borderWidth: 3
+      },
+      {
+        // another line graph
+        label: "Planet Mass (x1,000 km)",
+        data: [4.8, 12.1, 12.7, 6.7, 139.8, 116.4, 50.7, 49.2],
+        backgroundColor: [
+          "rgba(71, 183,132,.5)" // Green
+        ],
+        borderColor: ["#47b784"],
+        borderWidth: 3
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    lineTension: 1,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+            padding: 25
+          }
+        }
+      ]
+    }
+  }
+};
+
 export default {
   props: {
-    dataChart: Array
+    dataChart: Array,
   },
   watch: {
-    dataChart: async function(newVal, oldVal) {
-      this.$emit("update:dataChart", newVal);
+    dataChart(val) {
+      // val.forEach(report => {
+      //   report.emissions.map(v => {
+      //     if (tabYears.indexOf(v.year) > -1) {
+      //       tabYears[tabYears.indexOf(v.year)].result += v.value;
+      //     }
+      //   });
+      // });
+
+      let emissions = [];
+      val.forEach(report => {
+        report.emissions.map(v => {
+          if (!emissions[v.year]) {
+            emissions.push({
+              year: v.year,
+              value: v.value
+            });
+          } else {
+            console.log('BITE');
+            emissions[v.year].value += v.value;
+          }
+        });
+      });
+      console.log(emissions);
+    },
+  },
+  methods: {
+    createChart(chartId, chartData) {
+      const ctx = document.getElementById(chartId);
+      const myChart = new Chart(ctx, {
+        type: chartData.type,
+        data: chartData.data,
+        options: chartData.options
+      });
     }
   },
-  created() {
-    console.log(this.dataChart)
+  data() {
+    return {
+      planetChartData: planetChartData
+    };
+  },
+
+  mounted() {
+    this.createChart("planet-chart", this.planetChartData);
   },
 };
 </script>
