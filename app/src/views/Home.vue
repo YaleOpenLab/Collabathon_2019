@@ -37,13 +37,10 @@ export default {
   components: {
     LineChart,
     Doughnut
-  }
+  },
 };
 </script>
-    LineChart
-  }
-};
-</script>
+
 
 <style>
 .grr {
