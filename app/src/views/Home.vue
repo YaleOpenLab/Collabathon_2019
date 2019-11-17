@@ -40,10 +40,6 @@ export default {
   }
 };
 </script>
-    LineChart
-  }
-};
-</script>
 
 <style>
 .grr {

@@ -11,8 +11,8 @@
         <v-btn class="btnNav" text to="/">
           <div class="btnText">Explore</div>
         </v-btn>
-        <v-btn class="btnNav" text to="/go">
-          <div class="btnText">Trade</div>
+        <v-btn class="btnNav" text to="/future">
+          <div class="btnText">Future</div>
         </v-btn>
         <v-btn class="btnNav" text to="/simulator">
           <div class="btnText">Simulator</div>
@@ -23,20 +23,28 @@
       </v-toolbar-items>
     </v-app-bar>
     <v-content>
-      <FormData v-on:updateData="onChangeData" />
+      <div v-if="$store.state.whichForm !== 'future'">
+        <FormData v-on:updateData="onChangeData" />
+      </div>
+      <div v-else>
+        <FormFutureData v-on:updateData="onChangeData" />
+      </div>
       <router-view :dataChart="dataChart" />
     </v-content>
   </v-app>
 </template>
 
 <script>
+import router from "./router/index";
 import FormData from "@/components/FormData";
+import FormFutureData from "@/components/FormFutureData";
 
 export default {
   name: "App",
 
   components: {
-    FormData
+    FormData,
+    FormFutureData
   },
   methods: {
     onChangeData(val) {
@@ -45,8 +53,14 @@ export default {
   },
   data() {
     return {
-      dataChart: []
+      dataChart: [],
+      whichForm: ""
     };
+  },
+  watch: {
+    $route(to, from) {
+      this.$store.commit("SET_WICHFORM", router.resolve(to).route.name);
+    }
   }
 };
 </script>
