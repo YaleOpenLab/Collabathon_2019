@@ -7,7 +7,7 @@ const mostPollutingSector = async (req, res) => {
         let result = [];
         sectors.forEach(async sector => {
             const country = await Report.find({sector: sector});
-            console.log(country);
+            
             let emissions = {};
             country.forEach(report => {
                 report.emissions.map(v => {
