@@ -2,24 +2,20 @@
   <div>
     <v-container fluid>
       <v-row height="100vh">
-        <v-col md="6">
-          <h2 align="center" class="grr">CO2 WORLD COUNTRIES EMISSIONS</h2>
-          <LineChart :dataChart="dataChart" />
-        </v-col>
-        <v-col md="6">
-          <Doughnut :dataChart="dataChart" />
+        <v-col md="12">
+              <h2 align="center" class="grr">PREDICTION</h2>
+    <LineChartFuture :dataChart="dataChart" />
         </v-col>
       </v-row>
     </v-container>
+
   </div>
 </template>
-
 <script>
-import LineChart from "@/components/LineChart";
-import Doughnut from "@/components/Doughnut";
+import LineChartFuture from "@/components/LineChartFuture";
 
 export default {
-  name: "home",
+  name: "Future",
   props: {
     dataChart: Array
   },
@@ -29,18 +25,10 @@ export default {
     }
   },
   components: {
-    LineChart,
-    Doughnut
-  },
-  data() {
-    return {
-      sectorsChart: []
-    };
+    LineChartFuture
   }
 };
 </script>
-
-
 <style>
 .grr {
   color: rgb(1, 115, 103);
