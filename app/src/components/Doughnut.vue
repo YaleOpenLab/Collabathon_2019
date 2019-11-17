@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="labels && years">
-      <v-container style="height: 10vh">
+      <v-container fluid>
         <Doughnut :chartData="datacollection"></Doughnut>
       </v-container>
     </div>

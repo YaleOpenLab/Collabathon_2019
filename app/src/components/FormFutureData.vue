@@ -4,25 +4,25 @@
       <div v-if="!loading">
         <v-row>
           <v-col cols="12">
-            <v-row align="center" justify="center" class="mr-12 ml-12">
+            <v-row align="center" justify="center" class="ma-12">
               <v-select
-                v-model="selectCountry"
-                :items="itemsCountry"
+                v-model="selectLocation"
+                :items="itemsLocation"
                 @change="changeCountry"
                 label="Country"
                 class="ma-3"
               ></v-select>
               <v-select
-                v-model="selectSector"
+                v-model="selectScenario"
                 @change="changeSector"
-                :items="itemsSector"
+                :items="itemsScenario"
                 label="Sector"
                 class="ma-3"
               ></v-select>
               <v-select
-                v-model="selectGas"
+                v-model="selectIndicator"
                 @change="changeGas"
-                :items="itemsGas"
+                :items="itemsIndicator"
                 label="Gas"
                 class="ma-3"
               ></v-select>
@@ -46,35 +46,35 @@
 </template>
 
 <script>
-import { country, sector, gas, unit } from "../utils/fieldForm";
+import { location, scenario, indicator, unit } from "../utils/fieldFormFuture";
 export default {
   name: "formData",
   data() {
     return {
       loading: true,
       dataChart: "",
-      countryData: "",
-      selectCountry: "Afghanistan",
-      selectSector: "",
-      selectGas: "",
+      countryFutureData: "",
+      selectLocation: location[0],
+      selectScenario: "",
+      selectIndicator: "",
       selectUnit: "",
       selectYears: "",
-      itemsCountry: country,
-      itemsSector: sector,
-      itemsGas: gas,
+      itemsLocation: location,
+      itemsScenario: scenario,
+      itemsIndicator: indicator,
       itemsUnit: unit
     };
   },
   async created() {
     try {
-      const data = { country: this.selectCountry };
+      const data = { location: this.selectCountry };
       let res = await axios.post(
-        `${process.env.VUE_APP_API_URL}/data/getDataWithCountry`,
+        `${process.env.VUE_APP_API_URL}/data/getFutureWithLocation`,
         data
       );
       this.loading = false;
       this.dataChart = res.data.data;
-      this.countryData = res.data.data;
+      this.countryFutureData = res.data.data;
       this.$emit("updateData", this.dataChart);
     } catch (error) {
       console.error(error);
@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     beforeChange(changeValue) {
-      let tmpArray = this.countryData;
+      let tmpArray = this.countryFutureData;
       tmpArray = tmpArray.filter(k => {
         if (changeValue === "Sector") {
           return (
@@ -116,7 +116,7 @@ export default {
         data
       );
       this.dataChart = res.data.data;
-      this.countryData = this.dataChart;
+      this.countryFutureData = this.dataChart;
       this.dataChart = this.beforeChange("Country");
       this.$emit("updateData", this.dataChart);
     },

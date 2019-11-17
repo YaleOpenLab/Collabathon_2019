@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import reportController from '../controllers/reportController';
+import futureController from '../controllers/futureController';
 
 export const dataRouter = Router();
 
@@ -34,3 +35,18 @@ dataRouter.post('/getDataFilter', async (req, res) => reportController.getDataFi
 dataRouter.post('/getPrevision', async (req, res) => reportController.getPrevision(req, res));
 
 dataRouter.get('/mostPollutingSector', async (req, res) => reportController.mostPollutingSector(req, res));
+
+
+dataRouter.post('/future', async (req, res) => await futureController.getAllDataFuture(req, res))
+
+//data: location
+dataRouter.post('/getFutureWithLocation', async (req, res) => await futureController.getDataFutureWithLocation(req, res))
+
+//data: scenario
+dataRouter.post('/getFutureWithScenario', async (req, res) => await futureController.getDataFutureWithScenario(req, res))
+
+//data: indicator
+dataRouter.post('/getFutureWithIndicator', async (req, res) => await futureController.getDataFutureWithIndicator(req, res))
+
+//data: unit
+dataRouter.post('/getFutureWithUnit', async (req, res) => await futureController.getDataFutureWithUnit(req, res))
