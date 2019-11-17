@@ -23,19 +23,30 @@
       </v-toolbar-items>
     </v-app-bar>
     <v-content>
-      <router-view />
+      <FormData v-on:updateData="onChangeData" />
+      <router-view :dataChart="dataChart" />
     </v-content>
   </v-app>
 </template>
 
 <script>
+import FormData from "@/components/FormData";
+
 export default {
   name: "App",
 
-  components: {},
-
-  data: () => ({
-    //
-  })
+  components: {
+    FormData
+  },
+  methods: {
+    onChangeData(val) {
+      this.dataChart = val;
+    }
+  },
+  data() {
+    return {
+      dataChart: []
+    };
+  }
 };
 </script>
