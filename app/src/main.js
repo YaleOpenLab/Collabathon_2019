@@ -18,7 +18,15 @@ Vue.component('line-chart', {
     let options = { responsive: true};
     this.renderChart(this.chartData, options)
   },
-  
+})
+Vue.component('Doughnut', {
+  extends: VueCharts.Doughnut,
+  mixins: [VueCharts.mixins.reactiveProp],
+  props: ['chartData'],
+  mounted() {
+    let options = { responsive: true, cutoutPercentage: 100};
+    this.renderChart(this.chartData, options)
+  },
 })
 new Vue({
   router,

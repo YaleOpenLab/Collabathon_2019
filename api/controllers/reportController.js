@@ -5,10 +5,9 @@ const mostPollutingSector = async (req, res) => {
     try {
         const sectors = await Report.distinct("sector");
         let result = [];
+        let emissions = {};
         sectors.forEach(async sector => {
             const country = await Report.find({sector: sector});
-            
-            let emissions = {};
             country.forEach(report => {
                 report.emissions.map(v => {
                     if (!emissions[v.year]) {

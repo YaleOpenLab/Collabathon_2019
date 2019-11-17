@@ -10,6 +10,11 @@
           <h2 align="center" class="grr">MOST POLUTING INDUSTRIES</h2>
           <LineChart :dataChart="dataChart" />
         </v-col>
+        <v-row>
+          <v-col cols="12">
+            <Doughnut :dataChart="dataChart" />
+          </v-col>
+        </v-row>
       </v-row>
     </v-container>
   </div>
@@ -17,6 +22,8 @@
 
 <script>
 import LineChart from "@/components/LineChart";
+import Doughnut from "@/components/Doughnut";
+
 export default {
   name: "home",
   props: {
@@ -28,6 +35,11 @@ export default {
     }
   },
   components: {
+    LineChart,
+    Doughnut
+  }
+};
+</script>
     LineChart
   }
 };
