@@ -7,7 +7,7 @@ const mostPollutingSector = async (req, res) => {
         let result = [];
         let emissions;
         for (let i = 0; i < sectors.length; i++) {
-            const countries = await Report.find({sector: sectors[i]});
+            const countries = await Report.find({ sector: sectors[i] });
             emissions = {};
             for (let j = 0; j < countries.length; j++) {
                 countries[j].emissions.map(v => {
@@ -33,6 +33,35 @@ const mostPollutingSector = async (req, res) => {
 const getAllData = async (req, res) => {
     try {
         const country = await Report.find();
+        res.status(200).json({ success: true, country: country });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: error })
+    }
+}
+
+
+const getDataContryCo2 = async (req, res) => {
+    try {
+        const country = await Report.find({ gas: 'CO2' },  { emissions: { $max: { year } }});
+        // const currentYear = 2014;
+        // let result = {};
+        // country.map(k => {
+        //     if (!result[k.country]) {
+        //         result[k.country] = {};
+        //             k.emissions.map(v => {
+        //                 if (v.year == currentYear) {                            
+        //                         result[k.country][currentYear] = v.value ? v.value : 0;
+        //                 }
+        //             })
+        //     } else {
+        //         k.emissions.map(v => {
+        //             if (v.year == currentYear) {
+        //                 result[k.country][currentYear] += v.value ? v.value : 0;
+        //             }
+        //         })
+        //     }
+        // })
         res.status(200).json({ success: true, country: country });
     } catch (error) {
         console.error(error);
@@ -138,10 +167,6 @@ const getDataFilter = async (req, res) => {
     }
 }
 
-const getPrevision = async (req, res) => {
-
-}
-
 export default {
     getAllData,
     getDataYearWithCountry,
@@ -151,7 +176,7 @@ export default {
     getDataWithSector,
     getDataWithUnit,
     getDataFilter,
-    getPrevision,
     getDataWithCountry,
+    getDataContryCo2,
     mostPollutingSector
 }

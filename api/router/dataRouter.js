@@ -32,7 +32,7 @@ dataRouter.post('/getDataWithCountry', async (req, res) => reportController.getD
 //dataOptional: year, gas
 dataRouter.post('/getDataFilter', async (req, res) => reportController.getDataFilter(req, res));
 
-dataRouter.post('/getPrevision', async (req, res) => reportController.getPrevision(req, res));
+dataRouter.post('/getDataContryCo2', async (req, res) => reportController.getDataContryCo2(req, res));
 
 dataRouter.get('/mostPollutingSector', async (req, res) => reportController.mostPollutingSector(req, res));
 
