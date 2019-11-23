@@ -8,7 +8,7 @@ const getEmissionsPledgesForCountry = (req, res, db) => {
     db.select('*').from('country')
         .whereRaw('cld_rdisplayname = ?', [countryName])
         .then(items => {
-            console.log('Hi there wtf');
+
            // console.log('Results: ' + JSON.stringify(theseitems));
                    // res.json({dataExists: 'false'});
 
@@ -69,6 +69,7 @@ function finishEmissionsPledgesForCountry  (req, res, db, country_code, passedRe
     db.select('*').
     from('cw_ndc_quantification_csv')
         .whereRaw('label != \'BAU\' AND iso = ?', [country_code])
+        .orderBy('year', 'asc')
         .then(items => {
 
                let combined = [{}];

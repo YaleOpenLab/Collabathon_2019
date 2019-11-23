@@ -46,3 +46,58 @@ table th, table td { white-space: nowrap; }
   font-size: 30px;
 }
 
+
+#latest_reported_pledges {
+
+  padding-left: 430px;
+  top: -200px;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 20px;
+
+}
+
+
+.latest_reported_pledges_inner_year {
+
+  padding-left: 000px;
+  top: 000px;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+
+}
+
+.latest_reported_pledges_inner_value {
+
+  padding-left: 80px;
+  top: 000px;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+
+}
+
+.latest_reported_pledges_inner_label {
+
+  padding-left: 100px;
+  top: -000px;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+
+}
+
+
