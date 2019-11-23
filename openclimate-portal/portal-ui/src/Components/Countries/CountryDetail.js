@@ -61,14 +61,6 @@ class CountryDetail extends Component {
 
                     console.log('Pledge: '+JSON.stringify(pledge));
 
-                    //var existing = document.getElementById("latest_reported_pledges").innerHTML;
-
-                   // document.getElementById("latest_reported_pledges").childNodes[0].textContent = existing +'  '+JSON.stringify(pledge);
-                    //header.childNodes[0].textContent = "Changed";
-
-                    // /let
-
-
 
                     var year = pledge.year;
 
@@ -106,15 +98,8 @@ class CountryDetail extends Component {
                     elem.style.fontSize = '15px';
 
 
-
-
                 });
 
-
-
-
-
-                // document.getElementById("latest_reported_pledges").innerHTML = JSON.stringify(country_emissions_pledges.country_emissions_pledges[0].total_pledges);
 
             } else {
 
@@ -152,8 +137,6 @@ class CountryDetail extends Component {
                                         <div id="latest_reported_amount"></div>
 
                                         <div id="latest_reported_pledges" >
-
-
 
                                         </div>
 
