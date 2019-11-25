@@ -62,7 +62,7 @@ class PRECHandler extends TransactionHandler {
                                     verifications: [],
                                     by
                                 }
-                                if ([createdpRec.method])
+                                if (createdpRec.method)
                                     if (!Allowed) {
                                         throw new InvalidTransaction('Invalid Description: Only "Aa-Zz-_,.^@$%+/=" allowed in description.')
                                     }
