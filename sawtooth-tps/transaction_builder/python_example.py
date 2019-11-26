@@ -8,7 +8,7 @@ import cbor
 from hashlib import sha512
 from sawtooth_sdk.protobuf.transaction_pb2 import TransactionHeader
 from sawtooth_sdk.protobuf.transaction_pb2 import Transaction
-from sawtooth_sdk.protobuf import TransactionList
+from sawtooth_sdk.protobuf.transaction_pb2  import TransactionList
 from sawtooth_sdk.protobuf.batch_pb2 import BatchHeader
 from sawtooth_sdk.protobuf.batch_pb2 import BatchList
 ############################################################################################################################################################################################################################################################################################################################################################
@@ -51,7 +51,7 @@ txn_header_bytes = TransactionHeader(
     family_version='1.0',
     #inputs/outputs = [private_key] works here too to generalise to the individual user
     inputs=['1cf1266e282c41be5e4254d8820772c5518a2c5a8c0c7f7eda19594a7eb539453e1ed7'],
-    outputs=['1cf1266e282c41be5e4254d8820772c5518a2c5a8c0c7f7eda19594a7eb539453e1ed7']
+    outputs=['1cf1266e282c41be5e4254d8820772c5518a2c5a8c0c7f7eda19594a7eb539453e1ed7'],
     signer_public_key=signer.get_public_key().as_hex(),
     # In this example, we're signing the batch with the same private key,
     # but the batch can be signed by another party, in which case, the
@@ -77,17 +77,17 @@ signature = signer.sign(txn_header_bytes)
 txn = Transaction(
     header=txn_header_bytes,
     header_signature=signature,
-    payload: payload_bytes
+    payload= payload_bytes
 )
 
 ############################################################################################################################################################################################################################################################################################################################################################
 # if multiple Transactions
 
-txn_list_bytes = TransactionList(
-    transactions=[txn1, txn2]
-).SerializeToString()
+# txn_list_bytes = TransactionList(
+#     transactions=[txn1, txn2]
+# ).SerializeToString()
 
-txn_bytes = txn.SerializeToString()
+# txn_bytes = txn.SerializeToString()
 
 ###########################################################################################################################################################################################################################################################################################################################################################
 # Create Batch header
