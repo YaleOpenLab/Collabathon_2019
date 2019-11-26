@@ -30,7 +30,7 @@ def transaction():
     txn = Transaction(
     header=txn_header_bytes,
     header_signature=signature,
-    payload: payload_bytes
+    payload= payload_bytes
     )
 
     txn_list_bytes = TransactionList(
