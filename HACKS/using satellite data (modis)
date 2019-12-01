@@ -3,7 +3,7 @@ Short intro on MODIS data
 
 "Moderate Resolution Imaging Spectrometer (MODIS) is a satellite-based instrument that continuously collects data over the Earth’s surface. Currently, MODIS has the finest temporal resolution of the publicly available remote sensing data, spanning the entire globe every 24 hrs.
 
-MODIS collects data across 36 spectral bands; however, in this class, you will only work with the first 7 bands."
+MODIS collects data across 36 spectral bands; however, you can choose to work with less bands""
 
 
 
