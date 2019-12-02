@@ -13,7 +13,6 @@ import CountryContext from "../../Contexts/CountryContext";
 
 
 
-
 class PortalHome extends Component {
 
     constructor(props) {
@@ -65,7 +64,7 @@ class PortalHome extends Component {
 
             <div class="float-left">
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/"><h2>Open Climate Portal</h2></NavbarBrand>
+                    <NavbarBrand href="/"><h2>Open Climate Accounting Portal</h2></NavbarBrand>
                     <NavbarToggler />
                     <Collapse isOpen={true} navbar>
                         <Nav className="ml-auto" navbar>

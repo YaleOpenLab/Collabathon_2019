@@ -14,8 +14,6 @@ class CountryTable extends Component {
 
         this.handleChange = this.handleChange.bind(this);
 
-
-
     }
 
 
@@ -79,7 +77,6 @@ class CountryTable extends Component {
 
 
     handleChange (e, { value }) {
-
 
 
 

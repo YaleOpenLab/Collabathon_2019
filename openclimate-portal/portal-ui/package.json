@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
+    "jquery": "^3.4.1",
     "mdbreact": "^4.22.1",
     "react": "^16.11.0",
     "react-csv": "^1.1.2",
@@ -12,7 +13,8 @@
     "react-scripts": "2.1.8",
     "reactstrap": "^7.1.0",
     "reactstrap-toast": "^1.0.6",
-    "semantic-ui-react": "^0.88.1"
+    "semantic-ui-react": "^0.88.1",
+    "typescript": "^3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",

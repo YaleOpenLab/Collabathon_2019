@@ -54,19 +54,19 @@ class CountryDetail extends Component {
                 document.getElementById("latest_reported_pledges").innerText = '';
 
                 document.getElementById("latest_reported_pledges").innerHTML = '';
-                console.log('Pledges length more than zero');
-
 
                 emissions_pledges.country_emissions_pledges[0].total_pledges.map(pledge => {
-
-                    console.log('Pledge: '+JSON.stringify(pledge));
-
 
                     var year = pledge.year;
 
                     var value = pledge.value;
 
                     var label = pledge.label;
+
+
+                    var leftAlignDiv = document.createElement('DIV');
+                    leftAlignDiv.className = 'left_align_div';
+                    leftAlignDiv.style.textAlign = 'left';
 
                     var yeartextnode = document.createElement('SPAN');
                     yeartextnode.className = 'latest_reported_pledges_inner_year';
@@ -81,21 +81,32 @@ class CountryDetail extends Component {
 
                     var labeltextnode = document.createElement('SPAN');
                     labeltextnode.className = 'latest_reported_pledges_inner_label';
+                    labeltextnode.style.textAlign = 'right';
+                    labeltextnode.style.float = 'right';
+                    labeltextnode.style.paddingRight = '20px';
+
 
                     labeltextnode.innerText =  label;
 
                     var br = document.createElement('BR');
 
+                    document.getElementById("latest_reported_pledges").appendChild(leftAlignDiv);
 
-                    document.getElementById("latest_reported_pledges").appendChild(yeartextnode);
-                    document.getElementById("latest_reported_pledges").appendChild(valuetextnode);
-                    document.getElementById("latest_reported_pledges").appendChild(labeltextnode);
+                    var innerDiv = document.querySelector('.left_align_div');
 
-                    document.getElementById("latest_reported_pledges").appendChild(br);
+                    innerDiv.appendChild(yeartextnode);
+                    innerDiv.appendChild(valuetextnode);
+
+                    innerDiv.appendChild(labeltextnode);
+                    innerDiv.appendChild(br);
 
 
                     var elem = document.querySelector('#latest_reported_pledges');
                     elem.style.fontSize = '15px';
+
+
+
+
 
 
                 });
@@ -115,7 +126,7 @@ class CountryDetail extends Component {
 
 
     componentDidMount(){
-        this.getEmissionsPledgesForCountry();
+       // this.getEmissionsPledgesForCountry();
 
 
     }
@@ -136,10 +147,7 @@ class CountryDetail extends Component {
 
                                         <div id="latest_reported_amount"></div>
 
-                                        <div id="latest_reported_pledges" >
-
-                                        </div>
-
+                                        <div id="latest_reported_pledges" ></div>
 
                                     </Card>
 

@@ -54,7 +54,6 @@ const getEmissionSumForCountry = (req, res, db, country_code) => {
         .catch(err => console.log('Error here: '+JSON.stringify(err)));
 
 
-
 }
 
 function numberWithCommas(nStr) {
@@ -70,11 +69,81 @@ function finishEmissionsPledgesForCountry  (req, res, db, country_code, passedRe
     from('cw_ndc_quantification_csv')
         .whereRaw('label != \'BAU\' AND iso = ?', [country_code])
         .orderBy('year', 'asc')
+        .orderBy('value', 'asc')
         .then(items => {
 
                let combined = [{}];
               combined[0].total_emissions = passedResult.total_emissions;
-              combined[0].total_pledges = items;
+
+            let value1 = '';
+            let value2 = '';
+            let label = '';
+            let year = '';
+
+            let newitems = []
+
+            let n = 0;
+
+            let i = 0;
+
+            let rangepledge = {};
+
+            items.map(pledge => {
+
+              if (pledge.range == 'Yes') {
+
+                  console.log('Pledge yes: '+JSON.stringify(pledge));
+                  year = pledge['year'];
+
+                  console.log('Year: '+year);
+
+                  if (i == 0) {
+                      value1 = pledge['value'];
+                  } else {
+                      value2 = pledge['value'];
+                  }
+
+                  label = pledge['label'];
+
+                  rangepledge['iso'] = pledge.iso;
+                  rangepledge['country'] = pledge.country;
+                  rangepledge['label'] = label;
+                  rangepledge['year'] = year;
+
+
+                  if (i == 1) {
+                      rangepledge['value'] = value1 + ' - '+value2;
+                      console.log('Range pledge: '+JSON.stringify(rangepledge));
+
+
+
+                      newitems[n] = rangepledge;
+                      n++;
+
+
+                      console.log('N SET TO: '+n + ' : '+JSON.stringify(rangepledge));
+
+                      rangepledge = {};
+                      i = 0;
+                  } else {
+                      i++;
+                  }
+
+              } else {
+                  console.log('N SET TO: '+n + ' : '+JSON.stringify(pledge));
+
+                  newitems[n] = pledge;
+                  n++;
+
+              }
+
+
+            })
+
+
+
+
+            combined[0].total_pledges = newitems;
 
                console.log('Combined here: '+JSON.stringify(combined));
                 res.json(combined);
@@ -107,6 +176,7 @@ const getEmissions = (req, res, db) => {
 
 
 const getCountries = (req, res, db) => {
+    console.log('Get countries');
     db.select('cld_rdisplayname').from('country').orderBy('cld_rdisplayname', 'asc')
         .then(items => {
             if(items.length){
