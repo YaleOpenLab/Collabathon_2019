@@ -3,4 +3,3 @@ This repo is for participant of the [Open Climate Collabathon](https://collabath
 
 More information about prompts and participant guidelines can be found in the Event's [GitBook](https://collabathon-docs.openclimate.earth/)
 
-EARTH CARBON LEDGER
