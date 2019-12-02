@@ -1,5 +1,7 @@
 # Ecowidgy 
 
+The latest documentation can be found in Gitbook: https://app.gitbook.com/@open-climate/s/open-climate-collabathon/~/drafts/-Lv7HHwHSEIqM6HoEKRJ/hacks/team-contributions/climate-prompts/consumer-disclosure-contracts-or-eco-widgy
+
 Ecowidgy is an app that aims at showing the environmental effect of specific products. Originally conceived to operate as a browser plugin that would be enabled on online shopps. The idea was presented at the 2019 Collabathon for the Open Climate Platform. This repository contains the implementation of a back-end that can present the environmental impact of product categories, based on public Life Cycle Assessment databases.  The goal of the app is to inform the consumers about the environmental impact of the products they are buying and therefore to form a proper  
 
 ## Introduction
