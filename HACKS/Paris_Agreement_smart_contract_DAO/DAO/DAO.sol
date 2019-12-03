@@ -1,3 +1,10 @@
+//
+//  Shanghai Team hack by Pavel Krolevets, Muhammad Imran, Riaz Ali,
+//  Afzaal Muhammad,  Muhammad Jahanzeb Khan, Calvin, and Richard
+//
+//  Description on GitBook:
+//  https://collabathon-docs.openclimate.earth/prompts-1/prompts/world-system-registries/the-paris-smart-contract-agreement/dao-for-paris-agreement
+
 pragma solidity ^0.5.10;
 
 import "../parisagreement/paris_agreement.sol";
