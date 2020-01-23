@@ -279,6 +279,7 @@ app.get('/state', (req, res, next) => {
     for (i = 1; i < (data.length - 2); i++) {
       j = {
         ADDRESS: data[i].split(' ')[0],
+        LINK: `http://${req.headers.host}/state/${data[i].split(' ')[0]}`,
         SIZE: data[i].substring(sizespot, dataspot).trim(),
         DATA: data[i].substring(dataspot).trim()
       }
@@ -302,8 +303,20 @@ app.get('/state/:id', (req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
     switch (address.substr(0, 6)) { //decode different namespace per cponventions
       case 'd5b434': //emre decode
-
-      //break;
+        let data = stdout.split("'")[1]
+        let darr = data.split(',')[3].split('_')
+        let op = {
+          namespace: '"d5b434" | "emre" | Emission Record',
+          country_code: darr[0],
+          year: darr[1],
+          ghg: darr[2],
+          type: darr[3],
+          amount: darr[4],
+          string: darr[5],
+          IPFS: darr[6]
+        }
+        res.send(JSON.stringify(op, null, 3))
+        break;
       /*
 
       case '1cf126': //intkey decode
