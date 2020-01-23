@@ -1,5 +1,5 @@
 {
-    "name": "drec_javascript",
+    "name": "emre_javascript",
     "version": "1.0.0",
     "description": "An implementation of the drec transaction family using the sawtooth JS sdk",
     "main": "index.js",
@@ -12,6 +12,6 @@
     "dependencies": {
         "cbor": "^3.0.0",
         "json-stable-stringify": "^1.0.1",
-        "sawtooth-sdk": "file:./../../javascript"
+        "sawtooth-sdk": "file:~/Collabathon_2019/sawtooth_api/sawtooth-sdk"
     }
 }
