@@ -1,21 +1,6 @@
-/**
- * Copyright 2018 Intel Corporation
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ------------------------------------------------------------------------------
- */
+
 'use strict'
-const stringify = require('json-stable-stringify')
+//const stringify = require('json-stable-stringify')
 const crypto = require('crypto')
 
 class EmReState {
@@ -26,13 +11,15 @@ class EmReState {
     }
 
     getdRec(name) {
+        console.log('get', { name })
         return this._loaddRecs(name).then((dRecs) => dRecs.get(name))
     }
 
     setdRec(name, dRec) {
+        console.log('set', { name })
         let address = _makeEmReAddress(name)
 
-        return this._loaddRecss(name).then((dRecs) => {
+        return this._loaddRecs(name).then((dRecs) => {
             dRecs.set(name, dRec)
             return dRecs
         }).then((dRecs) => {
@@ -47,6 +34,7 @@ class EmReState {
     }
 
     deletedRec(name) {
+        console.log('del', { name })
         let address = _makeEmReAddress(name)
         return this._loaddRecs(name).then((dRecs) => {
             dRecs.delete(name)
@@ -66,6 +54,7 @@ class EmReState {
     }
 
     _loaddRecs(name) {
+        console.log('load', { name })
         let address = _makeEmReAddress(name)
         if (this.addressCache.has(address)) {
             if (this.addressCache.get(address) === null) {
@@ -105,8 +94,7 @@ module.exports = {
 }
 
 const _deserialize = (data) => {
-    let dRecsIterable = data.split('|').map(x => x.split(/,(?=(?:[^"]"[^"]")[^"]$)/gm))
-        .map(x => [x[0], { name: x[0], by: x[1], addr: x[2], verified: JSON.parse(x[3]), data: JSON.parse(x[4]) }])
+    let dRecsIterable = data.split('|').map(y => y.split(',').map(x => [x[0], { name: x[0], by: x[1], verified: x[2], data: x[3] }]))
     return new Map(dRecsIterable)
 }
 
@@ -115,7 +103,7 @@ const _serialize = (dRecs) => {
     for (let namedRec of dRecs) {
         let name = namedRec[0]
         let dRec = namedRec[1]
-        dRecStrs.push([name, dRec.by, dRec.addr, stringify(dRec.verified), stringify(dRec.data)].join(','))
+        dRecStrs.push([name, dRec.by, dRec.verified, dRec.data].join(','))
     }
 
     return Buffer.from(dRecStrs.join('|'))
