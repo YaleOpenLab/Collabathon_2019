@@ -31,12 +31,14 @@ class EMREHandler extends TransactionHandler {
     }
 
     apply(transactionProcessRequest, context) {
+        console.log('apply')
         let payload = EmRePayload.fromBytes(transactionProcessRequest.payload)
         let emreState = new EmReState(context)
         let header = transactionProcessRequest.header
         let by = header.signerPublicKey
-
+        let desc = payload.desc.split('_')
         if (payload.action === 'create') {
+            console.log('create')
             return emreState.getdRec(payload.name)
                 .then((dRec) => {
                     if (dRec !== undefined) {
@@ -50,21 +52,12 @@ class EMREHandler extends TransactionHandler {
                     if (!Allowed) {
                         throw new InvalidTransaction('Invalid Description: Only "Aa-Zz-_,.^@$%+/=" allowed in description.')
                     }
+                    // data validation here
                     let createddRec = {
                         name: payload.name,
-                        addr: payload.addr,
                         by: by,
-                        verified: [],
-                        data: {
-                            gas_type: payload.desc.gas_type,
-                            sector: payload.desc.sector,
-                            last_reported_year: payload.desc.last_reported_year,
-                            last_reported_mmtco2e: payload.desc.last_reported_mmtco2e,
-                            country: payload.desc.country,
-                            data_source: payload.desc.data_source,
-                            data_reporter_public_key: payload.desc.data_reporter_public_key,
-                            ipfs_identity: payload.desc.ipfs_identity,
-                        }
+                        verified: '',
+                        data: payload.desc
                     }
 
 
@@ -90,12 +83,12 @@ class EMREHandler extends TransactionHandler {
 
                     return emreState.setdRec(payload.name, dRec)
                 })
-        } else if (payload.action === 'fix') {
+        } else if (payload.action === 'test') {
             return emreState.getdRec(payload.name)
                 .then((dRec) => {
                     if (dRec === undefined) {
                         throw new InvalidTransaction(
-                            'Invalid Action: Verify requires an existing dRec.'
+                            'Invalid Action: Test requires an existing dRec.'
                         )
                     }
                     let veri = false
@@ -106,7 +99,28 @@ class EMREHandler extends TransactionHandler {
                     }
                     if (by !== dRec.by && !veri) {
 
-                        dRec.verified.push([by, payload.desc])
+                        dRec.verified.push([by, payload.desc.substr(0, 70)])
+                    }
+
+                    return emreState.setdRec(payload.name, dRec)
+                })
+        } else if (payload.action === 'fix') {
+            return emreState.getdRec(payload.name)
+                .then((dRec) => {
+                    if (dRec === undefined) {
+                        throw new InvalidTransaction(
+                            'Invalid Action: Fix requires an existing dRec.'
+                        )
+                    }
+                    let veri = false
+                    for (i = 0; i < dRec.verified.length; i++) {
+                        if (by === dRec.verified[i][0]) {
+                            veri = true
+                        }
+                    }
+                    if (by !== dRec.by && !veri) {
+
+                        dRec.verified.push([by, payload.desc.substr(0, 70)])
                     }
 
                     return emreState.setdRec(payload.name, dRec)
