@@ -1,162 +1,154 @@
-/**
- * Copyright 2017-2018 Intel Corporation
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ------------------------------------------------------------------------------
- */
-
 'use strict'
 
-const EmRePayload = require('./emission_record_payload')
+const { TransactionHandler } = require('./sawtooth-sdk/processor/handler')
+const {
+  InvalidTransaction,
+  InternalError
+} = require('./sawtooth-sdk/processor/exceptions')
 
-const { EMRE_NAMESPACE, EMRE_FAMILY, EmReState } = require('./emission_record_state')
+const MAX_NAME_LENGTH = 20
 
-const { TransactionHandler } = require('sawtooth-sdk/processor/handler')
-const { InvalidTransaction } = require('sawtooth-sdk/processor/exceptions')
+const crypto = require('crypto')
+const cbor = require('cbor')
 
+const _hash = (x) =>
+  crypto.createHash('sha512').update(x).digest('hex').toLowerCase()
 
-class EMREHandler extends TransactionHandler {
-    constructor() {
-        super(EMRE_FAMILY, ['1.0'], [EMRE_NAMESPACE])
-    }
+const EMSSIONS_KEY_FAMILY = 'emissions'
+const EMSSIONS_KEY_NAMESPACE = _hash(EMSSIONS_KEY_FAMILY).substring(0, 6)
 
-    apply(transactionProcessRequest, context) {
-        console.log('apply')
-        let payload = EmRePayload.fromBytes(transactionProcessRequest.payload)
-        let emreState = new EmReState(context)
-        let header = transactionProcessRequest.header
-        let by = header.signerPublicKey
-        let desc = payload.desc.split('_')
-        if (payload.action === 'create') {
-            console.log('create')
-            return emreState.getdRec(payload.name)
-                .then((dRec) => {
-                    if (dRec !== undefined) {
-                        throw new InvalidTransaction('Invalid Action: dRec already exists.')
-                    }
-                    let Allowed = isAllowed(payload.desc)
+const _decodeCbor = (buffer) =>
+  new Promise((resolve, reject) =>
+    cbor.decodeFirst(buffer, (err, obj) => (err ? reject(err) : resolve(obj)))
+  )
 
-                    function isAllowed(str) {
-                        return /[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\,\.\-_\^\@\$\%\*\(\)\=\+\/]/.test(str);
-                    }
-                    if (!Allowed) {
-                        throw new InvalidTransaction('Invalid Description: Only "Aa-Zz-_,.^@$%+/=" allowed in description.')
-                    }
-                    // data validation here
-                    let createddRec = {
-                        name: payload.name,
-                        by: by,
-                        verified: '',
-                        data: payload.desc
-                    }
-
-
-                    return emreState.setdRec(payload.name, createddRec)
-                })
-        } else if (payload.action === 'verify') {
-            return emreState.getdRec(payload.name)
-                .then((dRec) => {
-                    if (dRec === undefined) {
-                        throw new InvalidTransaction(
-                            'Invalid Action: Verify requires an existing dRec.'
-                        )
-                    }
-                    let veri = false
-                    for (i = 0; i < dRec.verified.length; i++) {
-                        if (by === dRec.verified[i][0]) {
-                            veri = true
-                        }
-                    }
-                    if (by !== dRec.by && !veri) {
-                        dRec.verified.push([by, 0])
-                    }
-
-                    return emreState.setdRec(payload.name, dRec)
-                })
-        } else if (payload.action === 'test') {
-            return emreState.getdRec(payload.name)
-                .then((dRec) => {
-                    if (dRec === undefined) {
-                        throw new InvalidTransaction(
-                            'Invalid Action: Test requires an existing dRec.'
-                        )
-                    }
-                    let veri = false
-                    for (i = 0; i < dRec.verified.length; i++) {
-                        if (by === dRec.verified[i][0]) {
-                            veri = true
-                        }
-                    }
-                    if (by !== dRec.by && !veri) {
-
-                        dRec.verified.push([by, payload.desc.substr(0, 70)])
-                    }
-
-                    return emreState.setdRec(payload.name, dRec)
-                })
-        } else if (payload.action === 'fix') {
-            return emreState.getdRec(payload.name)
-                .then((dRec) => {
-                    if (dRec === undefined) {
-                        throw new InvalidTransaction(
-                            'Invalid Action: Fix requires an existing dRec.'
-                        )
-                    }
-                    let veri = false
-                    for (i = 0; i < dRec.verified.length; i++) {
-                        if (by === dRec.verified[i][0]) {
-                            veri = true
-                        }
-                    }
-                    if (by !== dRec.by && !veri) {
-
-                        dRec.verified.push([by, payload.desc.substr(0, 70)])
-                    }
-
-                    return emreState.setdRec(payload.name, dRec)
-                })
-        } else if (payload.action === 'delete') {
-            return emreState.getdRec(payload.name)
-                .then((dRec) => {
-                    if (dRec === undefined) {
-                        throw new InvalidTransaction(
-                            `No dRec exists with name ${payload.name}: unable to delete`)
-                    } else if (by == dRec.by) {
-                        return emreState.deletedRec(payload.name)
-                    } else {
-                        arr = drec.verified,
-                            index = null
-                        for (i = 0; i < arr.length; i++) {
-                            if (arr[i][0] == by) {
-                                index = i
-                                break;
-                            }
-                        }
-                        if (index > -1) {
-                            dRec.verified.splice(index, 1)
-                            return emreState.setdRec(payload.name, dRec)
-                        } else {
-                            throw new InvalidTransaction(
-                                `You don't have permission to do that.`)
-                        }
-                    }
-                })
-        } else {
-            throw new InvalidTransaction(
-                `Action must be create, delete, or veri not ${payload.action}`
-            )
-        }
-    }
+const _toInternalError = (err) => {
+  let message = (err.message) ? err.message : err
+  throw new InternalError(message)
 }
 
-module.exports = EMREHandler
+const _setEntry = (context, address, stateValue) => {
+  let entries = {
+    [address]: cbor.encode(stateValue)
+  }
+  return context.setState(entries)
+}
+
+const _applySet = (context, address, name, value) => (possibleAddressValues) => {
+  let stateValueRep = possibleAddressValues[address]
+
+  let stateValue
+  if (stateValueRep && stateValueRep.length > 0) {
+    stateValue = cbor.decodeFirstSync(stateValueRep)
+    let stateName = stateValue[name]
+    if (stateName) {
+      throw new InvalidTransaction(
+        `Verb is "set" but Name already in state, Name: ${name} Value: ${stateName}`
+      )
+    }
+  }
+
+  // 'set' passes checks so store it in the state
+  if (!stateValue) {
+    stateValue = {}
+  }
+
+  stateValue[name] = value
+
+  return _setEntry(context, address, stateValue)
+}
+
+const _applyOperator = (verb, op) => (context, address, name, value) => (possibleAddressValues) => {
+  let stateValueRep = possibleAddressValues[address]
+  if (!stateValueRep || stateValueRep.length === 0) {
+    throw new InvalidTransaction(`Verb is ${verb} but Name is not in state`)
+  }
+
+  let stateValue = cbor.decodeFirstSync(stateValueRep)
+  if (stateValue[name] === null || stateValue[name] === undefined) {
+    throw new InvalidTransaction(`Verb is ${verb} but Name is not in state`)
+  }
+
+  const result = op(stateValue[name], value)
+
+  stateValue[name] = result
+  return _setEntry(context, address, stateValue)
+}
+
+
+class EmissionsKeyHandler extends TransactionHandler {
+  constructor() {
+    super(EMSSIONS_KEY_FAMILY, ['1.0'], [EMSSIONS_KEY_NAMESPACE])
+  }
+
+  apply(transactionProcessRequest, context) {
+    return _decodeCbor(transactionProcessRequest.payload)
+      .catch(_toInternalError)
+      .then((update) => {
+        //
+        // Validate the update
+        let name = update.Name
+        if (!name) {
+          throw new InvalidTransaction('Name is required')
+        }
+
+        if (name.length > MAX_NAME_LENGTH) {
+          throw new InvalidTransaction(
+            `Name must be a string of no more than ${MAX_NAME_LENGTH} characters`
+          )
+        }
+
+        let verb = update.Verb
+        if (!verb) {
+          throw new InvalidTransaction('Verb is required')
+        }
+
+        let value = update.Value
+        if (value === null || value === undefined) {
+          throw new InvalidTransaction('Value is required')
+        }
+
+        let parsed = parseInt(value)
+        if (parsed !== value || parsed < MIN_VALUE || parsed > MAX_VALUE) {
+          throw new InvalidTransaction(
+            `Value must be an integer ` +
+            `no less than ${MIN_VALUE} and ` +
+            `no greater than ${MAX_VALUE}`)
+        }
+
+        value = parsed
+
+        // Determine the action to apply based on the verb
+        let actionFn
+        if (verb === 'set') {
+          actionFn = _applySet
+        } else if (verb === 'dec') {
+          actionFn = _applyDec
+        } else if (verb === 'inc') {
+          actionFn = _applyInc
+        } else {
+          throw new InvalidTransaction(`Verb must be set, inc, dec not ${verb}`)
+        }
+
+        let address = EMISSIONS_KEY_NAMESPACE + _hash(name).slice(-64)
+
+        // Get the current state, for the key's address:
+        let getPromise = context.getState([address])
+
+        // Apply the action to the promise's result:
+        let actionPromise = getPromise.then(
+          actionFn(context, address, name, value)
+        )
+
+        // Validate that the action promise results in the correctly set address:
+        return actionPromise.then(addresses => {
+          if (addresses.length === 0) {
+            throw new InternalError('State Error!')
+          }
+          console.log(`Verb: ${verb} Name: ${name} Value: ${value}`)
+        })
+      })
+  }
+}
+
+module.exports = EmissionsKeyHandler
